@@ -1,17 +1,74 @@
-on: push
 name: 🚀 Deploy website on push
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:        # bisa dijalankan manual dari tab Actions
+
+concurrency:
+  group: deploy-eadoctor
+  cancel-in-progress: false # deploy berikutnya menunggu, tidak saling tabrak
+
 jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v6
-    
+
+    - name: 🔎 Cek secrets & rapikan alamat server
+      id: ftp
+      env:
+        S: ${{ secrets.FTP_SERVER }}
+        U: ${{ secrets.FTP_USERNAME }}
+        P: ${{ secrets.FTP_PASSWORD }}
+      run: |
+        for v in S U P; do
+          if [ -z "${!v}" ]; then
+            echo "::error::Secret FTP_SERVER / FTP_USERNAME / FTP_PASSWORD belum diisi (Settings > Secrets and variables > Actions)."
+            exit 1
+          fi
+        done
+        # Buang awalan ftp:// atau ftps://, garis miring, port, dan spasi bila ikut tertulis
+        s="$(echo "$S" | tr -d '[:space:]')"
+        s="${s#ftp://}"; s="${s#ftps://}"; s="${s%%/*}"; s="${s%%:*}"
+        echo "server=$s" >> "$GITHUB_OUTPUT"
+
+    - name: 🧪 Uji login FTP & tampilkan isi folder
+      env:
+        S: ${{ steps.ftp.outputs.server }}
+        U: ${{ secrets.FTP_USERNAME }}
+        P: ${{ secrets.FTP_PASSWORD }}
+      run: |
+        echo "Isi folder awal akun FTP:"
+        curl -sS --fail --connect-timeout 20 --list-only --user "$U:$P" "ftp://$S/" \
+          || { echo "::error::Login FTP gagal. Periksa FTP_SERVER (contoh: ftp.eadoctor.id atau IP), FTP_USERNAME, dan FTP_PASSWORD."; exit 1; }
+        echo "-----"
+        if curl -sS --fail --connect-timeout 20 --list-only --user "$U:$P" "ftp://$S/public_html/" > /dev/null; then
+          echo "Folder public_html/ ditemukan ✅"
+        else
+          echo "::error::Folder public_html/ tidak ada di akun FTP ini. Lihat daftar folder di atas untuk menentukan server-dir yang benar."
+          exit 1
+        fi
+
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.4.0
       with:
-        server: ${{ secrets.FTP_SERVER }}
+        server: ${{ steps.ftp.outputs.server }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
+        protocol: ftp
+        port: 21
         server-dir: public_html/
+        timeout: 120000
+        log-level: standard
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/.github/**
+          **/node_modules/**
+          README.md
+          api/config.php
+          api/schema.sql
