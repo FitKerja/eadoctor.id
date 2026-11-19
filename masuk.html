@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Login — EADOCTOR</title>
+    <meta name="theme-color" content="#04211b" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="i-wa" viewBox="0 0 24 24">
+        <path d="M3.6 20.4 4.9 16A8.6 8.6 0 1 1 8 19.1l-4.4 1.3Z" />
+        <path
+          d="M9.2 8.3c.3-.6.6-.6.9-.6h.6c.2 0 .4.1.5.4l.7 1.7c.1.3 0 .5-.1.6l-.5.6c-.1.2-.2.3 0 .6.3.6.8 1.2 1.3 1.6.5.5 1.1.8 1.6 1 .3.1.4.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l1.7.8c.2.1.4.2.4.4 0 .3 0 1-.5 1.5-.4.4-1.2.8-2 .7-1-.1-2.4-.6-3.8-1.9-1.4-1.3-2.2-2.8-2.4-3.8-.2-1 .1-1.8.3-2.1Z"
+          fill="currentColor"
+          stroke="none"
+        />
+      </symbol>
+    </svg>
+
+    <header class="nav" data-nav data-nav-tetap>
+      <div class="wadah nav__isi">
+        <a class="merek" href="index.html" aria-label="EADOCTOR, ke beranda">
+          <img src="assets/favicon.svg" alt="" width="30" height="30" />EA<span>DOCTOR</span>
+        </a>
+        <nav class="nav__pil" id="nav-tautan" data-nav-tautan aria-label="Navigasi utama">
+          <a href="index.html">Home</a>
+          <a href="tentang.html">Tentang</a>
+          <a href="produk.html">Produk</a>
+          <a href="promosi.html">Promosi</a>
+          <a href="index.html#faq">QnA</a>
+          <div class="nav__lagi" data-nav-lagi>
+            <button class="nav__lagi-tombol" type="button" data-nav-lagi-tombol aria-expanded="false" aria-controls="nav-lagi-menu">
+              More<svg class="nav__lagi-panah" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" /></svg>
+            </button>
+            <div class="nav__lagi-menu" id="nav-lagi-menu">
+              <a href="tonton-akun-real.html">Tonton Akun Real</a>
+              <a href="cara-daftar.html">Cara Daftar</a>
+              <a href="data-analytic.html">Data Analytic</a>
+              <a href="download-dokumen.html">Download Dokumen</a>
+              <a href="https://h5.vantagemarketapp.com/h5/thirdparty/support/register?agentAccount=MzYwMTUwOTc=&invitecode=kVxIS4rZ" target="_blank" rel="noopener">Download Apps MT5</a>
+            </div>
+          </div>
+          <a class="nav__seluler" href="https://vigco.co/la-s1com-inv/id/kVxIS4rZ" target="_blank" rel="noopener">Daftar</a>
+        </nav>
+        <div class="nav__aksi">
+          <a class="tombol tombol--emas tombol--kecil" href="https://vigco.co/la-s1com-inv/id/kVxIS4rZ" target="_blank" rel="noopener">Daftar</a>
+          <button
+            class="nav__tombol"
+            type="button"
+            data-nav-tombol
+            aria-controls="nav-tautan"
+            aria-expanded="false"
+            aria-label="Buka menu"
+          >
+            <span class="nav__garis"></span><span class="nav__garis"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="auth">
+      <div class="wadah">
+        <div class="auth__kartu" style="margin: 0 auto">
+          <h1>Login</h1>
+          <p>Masuk ke akun EADOCTOR Anda.</p>
+          <!-- Kerangka: belum terhubung ke server -->
+          <form class="formulir" data-formulir-kerangka novalidate>
+            <div class="isian">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" />
+            </div>
+            <div class="isian">
+              <label for="sandi">Kata sandi</label>
+              <input id="sandi" name="sandi" type="password" autocomplete="current-password" />
+            </div>
+            <button class="tombol tombol--emas tombol--lebar" type="submit">Login</button>
+            <p class="formulir__info" data-formulir-info role="status" hidden>
+              Login segera tersedia.
+            </p>
+          </form>
+          <p class="auth__alih">Belum punya akun? <a href="https://vigco.co/la-s1com-inv/id/kVxIS4rZ" target="_blank" rel="noopener">Daftar</a></p>
+        </div>
+      </div>
+    </main>
+
+    <div class="agen">
+      <p class="agen__pesan" data-wa-pesan role="status" hidden>
+        Nomor WhatsApp admin segera tersedia.
+      </p>
+      <a
+        class="wa-mengambang"
+        href="#"
+        data-wa
+        target="_blank"
+        rel="noopener"
+        aria-label="EADOCTOR Assistant, chat admin via WhatsApp"
+      >
+        <svg class="ikon" aria-hidden="true"><use href="#i-wa" /></svg>
+        <span class="wa-mengambang__teks">
+          <strong>EADOCTOR Assistant</strong>
+          <small>Chat via WhatsApp</small>
+        </span>
+      </a>
+    </div>
+  </body>
+</html>

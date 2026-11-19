@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Tentang EAJO — EADOCTOR</title>
+    <meta name="description" content="Kenalan dengan developer EAJO, cara kerja robot, dan tahap pengujiannya." />
+    <meta name="theme-color" content="#04211b" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <!-- ================= IKON & ROBOT ================= -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="i-grafik" viewBox="0 0 24 24">
+        <path d="M3 3v18h18" /><path d="m7 15 4-4 3 3 6-7" /><path d="M16 7h4v4" />
+      </symbol>
+      <symbol id="i-perisai" viewBox="0 0 24 24">
+        <path d="M12 3 4.5 6v6c0 4.4 3.2 7.9 7.5 9 4.3-1.1 7.5-4.6 7.5-9V6L12 3Z" /><path d="m9 12 2 2 4-4" />
+      </symbol>
+      <symbol id="i-cpu" viewBox="0 0 24 24">
+        <rect x="6" y="6" width="12" height="12" rx="2" /><path d="M9.5 9.5h5v5h-5z" />
+        <path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4" />
+      </symbol>
+      <symbol id="i-jam" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" />
+      </symbol>
+      <symbol id="i-cek" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" /><path d="m8 12 3 3 5-6" />
+      </symbol>
+      <symbol id="i-hadiah" viewBox="0 0 24 24">
+        <rect x="3" y="8" width="18" height="4" rx="1" /><path d="M5 12v8h14v-8M12 8v12" />
+        <path d="M12 8S10.5 4 8 4a2 2 0 0 0 0 4h4Zm0 0s1.5-4 4-4a2 2 0 0 1 0 4h-4Z" />
+      </symbol>
+      <symbol id="i-panah" viewBox="0 0 24 24">
+        <path d="M5 12h14M13 6l6 6-6 6" />
+      </symbol>
+      <symbol id="i-wa" viewBox="0 0 24 24">
+        <path d="M3.6 20.4 4.9 16A8.6 8.6 0 1 1 8 19.1l-4.4 1.3Z" />
+        <path
+          d="M9.2 8.3c.3-.6.6-.6.9-.6h.6c.2 0 .4.1.5.4l.7 1.7c.1.3 0 .5-.1.6l-.5.6c-.1.2-.2.3 0 .6.3.6.8 1.2 1.3 1.6.5.5 1.1.8 1.6 1 .3.1.4.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l1.7.8c.2.1.4.2.4.4 0 .3 0 1-.5 1.5-.4.4-1.2.8-2 .7-1-.1-2.4-.6-3.8-1.9-1.4-1.3-2.2-2.8-2.4-3.8-.2-1 .1-1.8.3-2.1Z"
+          fill="currentColor"
+          stroke="none"
+        />
+      </symbol>
+      <!-- Ikon garis untuk beranda -->
+      <symbol id="i-tas" viewBox="0 0 24 24">
+        <rect x="3" y="7" width="18" height="13" rx="2" /><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" /><path d="M3 12.5h18M10.5 12.5v1.5h3v-1.5" />
+      </symbol>
+      <symbol id="i-rumah" viewBox="0 0 24 24">
+        <path d="M3 11 12 4l9 7" /><path d="M5.5 9.5V20h13V9.5" /><path d="M10 20v-5.5h4V20" />
+      </symbol>
+      <symbol id="i-tunas" viewBox="0 0 24 24">
+        <path d="M12 21v-9" /><path d="M12 12c0-4 3-6.5 7.5-6.5 0 4.2-3 6.5-7.5 6.5Z" /><path d="M12 14.5C12 11.3 9.6 9 5 9c0 3.4 2.6 5.5 7 5.5Z" /><path d="M7.5 21h9" />
+      </symbol>
+      <symbol id="i-koper" viewBox="0 0 24 24">
+        <circle cx="9" cy="8" r="3.5" /><path d="M2.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5" /><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.3 14.9c1.8.8 2.9 2.5 3.2 5.1" />
+      </symbol>
+      <symbol id="i-orang" viewBox="0 0 24 24">
+        <circle cx="12" cy="7.5" r="3.8" /><path d="M4.5 21c.7-4.3 3.6-6.5 7.5-6.5s6.8 2.2 7.5 6.5" />
+      </symbol>
+      <symbol id="i-awas" viewBox="0 0 24 24">
+        <path d="M12 3.5 2.5 20h19L12 3.5Z" /><path d="M12 10v4.5" /><path d="M12 17.3v.2" />
+      </symbol>
+      <!-- Robot 3D EAJO (dari index2) -->
+      <defs>
+        <radialGradient id="shell" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#FFFFFF"/><stop offset="0.55" stop-color="#E4EAE7"/><stop offset="1" stop-color="#8FA39C"/></radialGradient>
+        <linearGradient id="visor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0A1E18"/><stop offset="1" stop-color="#134235"/></linearGradient>
+        <radialGradient id="eye" cx="0.5" cy="0.45" r="0.6"><stop offset="0" stop-color="#FFFBE6"/><stop offset="0.5" stop-color="#F5D57A"/><stop offset="1" stop-color="#D4AF37"/></radialGradient>
+        <linearGradient id="joint" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A5A55"/><stop offset="1" stop-color="#1A2421"/></linearGradient>
+        <radialGradient id="goldBall" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#FFF4C4"/><stop offset="0.5" stop-color="#E9C46A"/><stop offset="1" stop-color="#9A6B16"/></radialGradient>
+        <linearGradient id="goldTop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF4C4"/><stop offset="0.5" stop-color="#F0CF73"/><stop offset="1" stop-color="#C99A35"/></linearGradient>
+        <linearGradient id="goldFront" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9C46A"/><stop offset="0.55" stop-color="#C08A2C"/><stop offset="1" stop-color="#7A5410"/></linearGradient>
+        <linearGradient id="goldSide" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#A9771F"/><stop offset="1" stop-color="#6A470C"/></linearGradient>
+        <filter id="glowF" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="soft" x="-30%" y="-100%" width="160%" height="300%"><feGaussianBlur stdDeviation="8"/></filter>
+        <symbol id="robot" viewBox="0 0 420 460">
+          <ellipse cx="210" cy="440" rx="140" ry="14" fill="#000" fill-opacity="0.35" filter="url(#soft)"/>
+          <rect x="204" y="34" width="12" height="40" rx="6" fill="url(#joint)"/>
+          <circle cx="210" cy="28" r="17" fill="url(#goldBall)"/>
+          <circle cx="204" cy="22" r="5" fill="#FFF" fill-opacity="0.7"/>
+          <circle cx="100" cy="150" r="27" fill="url(#goldBall)"/><circle cx="100" cy="150" r="12" fill="url(#joint)"/>
+          <circle cx="320" cy="150" r="27" fill="url(#goldBall)"/><circle cx="320" cy="150" r="12" fill="url(#joint)"/>
+          <rect x="105" y="70" width="210" height="160" rx="64" fill="url(#shell)"/>
+          <ellipse cx="160" cy="92" rx="40" ry="12" fill="#FFF" fill-opacity="0.6" filter="url(#soft)"/>
+          <rect x="132" y="102" width="156" height="94" rx="40" fill="url(#visor)"/>
+          <rect x="155" y="129" width="34" height="40" rx="15" fill="url(#eye)" filter="url(#glowF)"/>
+          <rect x="231" y="129" width="34" height="40" rx="15" fill="url(#eye)" filter="url(#glowF)"/>
+          <path d="M190 180 Q210 191 230 180" fill="none" stroke="#F5D57A" stroke-width="5" stroke-linecap="round"/>
+          <path d="M146 114 Q205 101 272 112 L270 122 Q205 113 148 126 Z" fill="#FFF" fill-opacity="0.18"/>
+          <rect x="185" y="226" width="50" height="28" rx="8" fill="url(#joint)"/>
+          <path d="M128 285 C 78 300, 82 360, 136 376" fill="none" stroke="url(#joint)" stroke-width="26" stroke-linecap="round"/>
+          <path d="M292 285 C 342 300, 338 360, 284 376" fill="none" stroke="url(#joint)" stroke-width="26" stroke-linecap="round"/>
+          <rect x="120" y="246" width="180" height="156" rx="60" fill="url(#shell)"/>
+          <ellipse cx="170" cy="268" rx="32" ry="10" fill="#FFF" fill-opacity="0.55" filter="url(#soft)"/>
+          <circle cx="210" cy="296" r="26" fill="url(#goldBall)" stroke="#FFF4C4" stroke-width="2"/>
+          <polyline points="196,306 205,297 212,302 224,288" fill="none" stroke="#5A3D0A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <polygon points="152,330 268,330 286,352 134,352" fill="url(#goldTop)"/>
+          <polygon points="134,352 286,352 300,400 120,400" fill="url(#goldFront)"/>
+          <polygon points="268,330 286,352 300,400 292,376" fill="url(#goldSide)"/>
+          <text x="210" y="346" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#8A5F10">Au</text>
+          <text x="210" y="384" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#5A3D0A">999.9</text>
+          <path d="M150 356 L280 356" stroke="#FFF4C4" stroke-opacity="0.6" stroke-width="2"/>
+          <circle cx="130" cy="372" r="22" fill="url(#shell)"/>
+          <circle cx="290" cy="372" r="22" fill="url(#shell)"/>
+          <ellipse cx="210" cy="414" rx="46" ry="9" fill="url(#joint)"/>
+          <path d="M322 300 L326 314 L340 318 L326 322 L322 336 L318 322 L304 318 L318 314 Z" fill="#FFF4C4"/>
+          <path d="M102 318 L104.5 326 L112 328.5 L104.5 331 L102 339 L99.5 331 L92 328.5 L99.5 326 Z" fill="#FFF4C4"/>
+        </symbol>
+      </defs>
+    </svg>
+
+    <a class="lewati" href="#utama">Lewati ke konten</a>
+
+    <!-- ================= NAVIGASI ================= -->
+    <header class="nav" data-nav data-nav-tetap>
+      <div class="wadah nav__isi">
+        <a class="merek" href="index.html" aria-label="EADOCTOR, ke beranda">
+          <img src="assets/favicon.svg" alt="" width="30" height="30" />EA<span>DOCTOR</span>
+        </a>
+        <nav class="nav__pil" id="nav-tautan" data-nav-tautan aria-label="Navigasi utama">
+          <a href="index.html">Home</a>
+          <a href="tentang.html">Tentang</a>
+          <a href="produk.html">Produk</a>
+          <a href="promosi.html">Promosi</a>
+          <a href="index.html#faq">QnA</a>
+          <div class="nav__lagi" data-nav-lagi>
+            <button class="nav__lagi-tombol" type="button" data-nav-lagi-tombol aria-expanded="false" aria-controls="nav-lagi-menu">
+              More<svg class="nav__lagi-panah" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" /></svg>
+            </button>
+            <div class="nav__lagi-menu" id="nav-lagi-menu">
+              <a href="tonton-akun-real.html">Tonton Akun Real</a>
+              <a href="cara-daftar.html">Cara Daftar</a>
+              <a href="data-analytic.html">Data Analytic</a>
+              <a href="download-dokumen.html">Download Dokumen</a>
+              <a href="https://h5.vantagemarketapp.com/h5/thirdparty/support/register?agentAccount=MzYwMTUwOTc=&invitecode=kVxIS4rZ" target="_blank" rel="noopener">Download Apps MT5</a>
+            </div>
+          </div>
+          <a class="nav__seluler" href="https://vigco.co/la-s1com-inv/id/kVxIS4rZ" target="_blank" rel="noopener">Daftar</a>
+        </nav>
+        <div class="nav__aksi">
+          <a class="tombol tombol--emas tombol--kecil" href="https://vigco.co/la-s1com-inv/id/kVxIS4rZ" target="_blank" rel="noopener">Daftar</a>
+          <button
+            class="nav__tombol"
+            type="button"
+            data-nav-tombol
+            aria-controls="nav-tautan"
+            aria-expanded="false"
+            aria-label="Buka menu"
+          >
+            <span class="nav__garis"></span><span class="nav__garis"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="utama">
+      <!-- ================= TENTANG: DEVELOPER, CARA KERJA, PENGUJIAN ================= -->
+      <section class="bagian hm-atas" id="tentang">
+        <div class="wadah">
+          <div class="bagian__kepala bagian__kepala--tengah">
+            <span class="eyebrow">Tentang EAJO</span>
+            <h1 class="bagian__judul">Siapa di balik EAJO, dan <em>bagaimana robot ini bekerja</em></h1>
+          </div>
+        </div>
+        <div class="wadah">
+          <div class="tentang" data-animasi>
+            <div class="bagian__kepala">
+              <span class="eyebrow">Kenalan dengan Developer</span>
+              <h2 class="bagian__judul">Masalah umum bukan skill trading, tapi <em>konsistensi</em>.</h2>
+              <p class="bagian__teks">
+                Halo, perkenalkan saya developer EAJO. Saya lulusan master bidang sains dari
+                kampus peringkat 200 besar dunia, menempuh pendidikan coding,
+                dan atlet tenis tunggal.
+              </p>
+              <p class="bagian__teks">
+                Saya trading emas dari 2015 sampai 2025, dan <strong>tercatat rugi</strong>.
+                Saat disiplin, saya selalu profit dengan risiko terukur. Saat emosi, saya
+                balas dendam ke pasar (<i>revenge trading</i>), menaikkan lot, lalu terkena
+                <strong>Margin Call</strong>.
+              </p>
+              <div class="sorotan">
+                <h3>Robot tidak punya emosi.</h3>
+                <p>
+                  Berbekal pengalaman menyusun tesis, mengolah data dengan IBM SPSS, coding,
+                  dan 10 tahun trading, saya membuat EAJO untuk menutup celah disiplin itu.
+                </p>
+              </div>
+            </div>
+            <div class="bingkai-foto bingkai-foto--robot">
+              <svg class="robot" viewBox="0 0 420 460" role="img" aria-label="Robot EAJO memegang emas batangan"><use href="#robot" /></svg>
+            </div>
+          </div>
+
+          <div class="sub-kepala" data-animasi>
+            <span class="label-kecil">Cara Kerja</span>
+            <h3>Ikuti tren, manfaatkan koreksi, dengan lot sangat kecil.</h3>
+            <p>
+              EAJO membuka posisi mengikuti tren dan saat harga koreksi (<i>retrace</i>).
+              Jarak antar posisi lanjutan (<i>hedging</i>) dibuat lebar.
+            </p>
+          </div>
+          <div class="kisi kisi--2">
+            <div class="kartu metrik" data-animasi>
+              <p class="metrik__label">Trader pada umumnya</p>
+              <p class="metrik__nilai metrik__nilai--besar">0,5–2%</p>
+              <p class="metrik__catatan">risiko per trade</p>
+            </div>
+            <div class="kartu metrik kartu--sorot" data-animasi>
+              <p class="metrik__label">EAJO</p>
+              <p class="metrik__nilai metrik__nilai--besar">0,05–0,2%</p>
+              <p class="metrik__catatan">risiko per trade, sepersepuluhnya</p>
+            </div>
+          </div>
+
+          <div class="sub-kepala" data-animasi>
+            <span class="label-kecil">Pengujian</span>
+            <h3>Diuji lebih dari 1.256 kali dalam 4 tahap</h3>
+          </div>
+          <!-- Berita berjalan: isi digandakan oleh main.js agar putaran mulus -->
+          <div class="berjalan" data-berjalan data-animasi>
+            <div class="berjalan__jalur">
+              <ul class="berjalan__grup">
+                <li class="berjalan__item">
+                  <span class="berjalan__nomor">1</span>
+                  <strong>Single test</strong><span>Uji dasar satu skenario</span>
+                </li>
+                <li class="berjalan__item">
+                  <span class="berjalan__nomor">2</span>
+                  <strong>Visual test</strong><span>Cek setiap posisi di chart</span>
+                </li>
+                <li class="berjalan__item">
+                  <span class="berjalan__nomor">3</span>
+                  <strong>Stress &amp; delay test</strong><span>Pasar ekstrem &amp; eksekusi lambat</span>
+                </li>
+                <li class="berjalan__item">
+                  <span class="berjalan__nomor">4</span>
+                  <strong>Optimization</strong><span>Mencari pengaturan terbaik</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= AJAKAN ================= -->
+      <section class="bagian bagian--gelap">
+        <div class="wadah">
+          <div class="ajakan" data-animasi>
+            <h2 class="bagian__judul">Ingin melihat <em>datanya</em>?</h2>
+            <p class="bagian__teks">Hasil pengujian, grafik balance, dan simulasi risiko EAJO dibuka apa adanya.</p>
+            <div class="hero__aksi">
+              <a class="tombol tombol--emas" href="produk.html">Lihat produk EAJO<svg class="ikon"><use href="#i-panah" /></svg></a>
+              <a class="tombol tombol--garis" href="https://vigco.co/la-s1com-inv/id/kVxIS4rZ" target="_blank" rel="noopener">Mulai sekarang</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= KAKI ================= -->
+    <footer class="kaki">
+      <div class="wadah">
+        <div class="kaki__isi">
+          <div class="kaki__merek">
+            <a class="merek" href="index.html"
+              ><img src="assets/favicon.svg" alt="" width="30" height="30" />EA<span>DOCTOR</span></a
+            >
+            <p>
+              Pengembang Expert Advisor trading. Produk pertama: EAJO, robot trading emas
+              XAUUSD.
+            </p>
+          </div>
+          <div class="kaki__kolom">
+            <h3>Menu</h3>
+            <a href="index.html">Home</a>
+            <a href="tentang.html">Tentang</a>
+            <a href="produk.html">Produk</a>
+            <a href="promosi.html">Promosi</a>
+            <a href="index.html#faq">QnA</a>
+          </div>
+          <div class="kaki__kolom">
+            <h3>Akun</h3>
+            <a href="https://vigco.co/la-s1com-inv/id/kVxIS4rZ" target="_blank" rel="noopener">Daftar</a>
+            <a href="cara-daftar.html">Cara Daftar</a>
+          </div>
+        </div>
+        <div class="kaki__bawah">
+          <p class="kaki__hak">© EADOCTOR 2026</p>
+          <p class="kaki__kecil">
+            Disclaimer: materi ini bukan ajakan atau rekomendasi untuk membeli maupun
+            berinvestasi. Keputusan menggunakan EAJO sepenuhnya kembali kepada
+            masing-masing. Trading emas dengan leverage berisiko tinggi dan dapat
+            menghabiskan seluruh modal. Hasil pengujian masa lalu tidak menjamin hasil di
+            masa depan. Angka peluang adalah estimasi statistik, bukan jaminan.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= WHATSAPP MENGAMBANG ================= -->
+    <!-- Nomor diatur di assets/js/main.js (NOMOR_WA) -->
+    <div class="agen">
+      <p class="agen__pesan" data-wa-pesan role="status" hidden>
+        Nomor WhatsApp admin segera tersedia.
+      </p>
+      <a
+        class="wa-mengambang"
+        href="#"
+        data-wa
+        target="_blank"
+        rel="noopener"
+        aria-label="EADOCTOR Assistant, chat admin via WhatsApp"
+      >
+        <svg class="ikon" aria-hidden="true"><use href="#i-wa" /></svg>
+        <span class="wa-mengambang__teks">
+          <strong>EADOCTOR Assistant</strong>
+          <small>Chat via WhatsApp</small>
+        </span>
+      </a>
+    </div>
+  </body>
+</html>

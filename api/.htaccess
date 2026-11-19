@@ -1,0 +1,6 @@
+# Hanya daftar.php yang boleh diakses dari browser.
+Options -Indexes
+
+<FilesMatch "^(config\.php|email-selamat\.php|schema\.sql|.*\.log)$">
+  Require all denied
+</FilesMatch>

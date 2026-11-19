@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Data Analytic — EADOCTOR</title>
+    <meta name="theme-color" content="#04211b" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="i-wa" viewBox="0 0 24 24">
+        <path d="M3.6 20.4 4.9 16A8.6 8.6 0 1 1 8 19.1l-4.4 1.3Z" />
+        <path
+          d="M9.2 8.3c.3-.6.6-.6.9-.6h.6c.2 0 .4.1.5.4l.7 1.7c.1.3 0 .5-.1.6l-.5.6c-.1.2-.2.3 0 .6.3.6.8 1.2 1.3 1.6.5.5 1.1.8 1.6 1 .3.1.4.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l1.7.8c.2.1.4.2.4.4 0 .3 0 1-.5 1.5-.4.4-1.2.8-2 .7-1-.1-2.4-.6-3.8-1.9-1.4-1.3-2.2-2.8-2.4-3.8-.2-1 .1-1.8.3-2.1Z"
+          fill="currentColor"
+          stroke="none"
+        />
+      </symbol>
+    </svg>
+
+    <header class="nav" data-nav data-nav-tetap>
+      <div class="wadah nav__isi">
+        <a class="merek" href="index.html" aria-label="EADOCTOR, ke beranda">
+          <img src="assets/favicon.svg" alt="" width="30" height="30" />EA<span>DOCTOR</span>
+        </a>
+        <nav class="nav__pil" id="nav-tautan" data-nav-tautan aria-label="Navigasi utama">
+          <a href="index.html">Home</a>
+          <a href="tentang.html">Tentang</a>
+          <a href="produk.html">Produk</a>
+          <a href="promosi.html">Promosi</a>
+          <a href="index.html#faq">QnA</a>
+          <div class="nav__lagi" data-nav-lagi>
+            <button class="nav__lagi-tombol" type="button" data-nav-lagi-tombol aria-expanded="false" aria-controls="nav-lagi-menu">
+              More<svg class="nav__lagi-panah" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" /></svg>
+            </button>
+            <div class="nav__lagi-menu" id="nav-lagi-menu">
+              <a href="tonton-akun-real.html">Tonton Akun Real</a>
+              <a href="cara-daftar.html">Cara Daftar</a>
+              <a href="data-analytic.html">Data Analytic</a>
+              <a href="download-dokumen.html">Download Dokumen</a>
+              <a href="https://h5.vantagemarketapp.com/h5/thirdparty/support/register?agentAccount=MzYwMTUwOTc=&invitecode=kVxIS4rZ" target="_blank" rel="noopener">Download Apps MT5</a>
+            </div>
+          </div>
+          <a class="nav__seluler" href="https://vigco.co/la-s1com-inv/id/kVxIS4rZ" target="_blank" rel="noopener">Daftar</a>
+        </nav>
+        <div class="nav__aksi">
+          <a class="tombol tombol--emas tombol--kecil" href="https://vigco.co/la-s1com-inv/id/kVxIS4rZ" target="_blank" rel="noopener">Daftar</a>
+          <button
+            class="nav__tombol"
+            type="button"
+            data-nav-tombol
+            aria-controls="nav-tautan"
+            aria-expanded="false"
+            aria-label="Buka menu"
+          >
+            <span class="nav__garis"></span><span class="nav__garis"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="bagian halaman da">
+      <div class="wadah">
+        <!-- ====== Pembuka ====== -->
+        <div class="bagian__kepala bagian__kepala--tengah">
+          <span class="eyebrow">Laporan Analitik · 2026</span>
+          <h1 class="bagian__judul">Data Analytic EAJO</h1>
+          <p class="bagian__teks">
+            Analisis performa, risiko, dan rekomendasi modal untuk tiga varian robot emas XAUUSD:
+            V7 Physician, V8 Specialist, dan V9 Consultant.
+          </p>
+        </div>
+
+        <div class="da-varian">
+          <div class="da-kartu da-varian__kartu">
+            <span class="da-kecil">EAJO V7</span>
+            <h2>Physician</h2>
+            <p>PF 2,74 · Win 90,0%</p>
+          </div>
+          <div class="da-kartu da-varian__kartu">
+            <span class="da-kecil">EAJO V8</span>
+            <h2>Specialist</h2>
+            <p>PF 2,84 · Win 89,1%</p>
+          </div>
+          <div class="da-kartu da-varian__kartu">
+            <span class="da-kecil">EAJO V9</span>
+            <h2>Consultant</h2>
+            <p>PF 3,55 · Win 90,7%</p>
+          </div>
+        </div>
+        <ul class="da-sumber">
+          <li>Backtest: Okt 2025 – Agu 2026 · 112 juta tick · kualitas data 100%</li>
+          <li>Forward test akun riil: 1 Okt 2025 – 13 Nov 2026</li>
+        </ul>
+        <div class="da-aksi">
+          <a class="ed-tombol da-unduh" href="assets/download-dokumen/Laporan-Analitik-EAJO.pdf" download>
+            Download laporan EAJO (PDF)
+          </a>
+        </div>
+
+        <!-- ====== 1. Ringkasan ====== -->
+        <section class="da-bagian" aria-labelledby="da-ringkasan">
+          <span class="da-label">Ringkasan eksekutif</span>
+          <h2 class="da-judul" id="da-ringkasan">Tiga varian, satu pola: winrate ±90% dengan risiko per transaksi kecil</h2>
+          <p class="da-teks">
+            Ketiga varian diuji pada data tick XAUUSD yang sama. Sekitar 9 dari 10 transaksi ditutup
+            profit, profit factor di atas 2,7, dan rugi beruntun terpanjang hanya 4 transaksi.
+            Perbedaannya ada pada skala modal, besar profit, dan kedalaman drawdown.
+          </p>
+
+          <div class="da-grafik-kisi">
+            <figure class="da-kartu da-grafik">
+              <figcaption>Profit bersih (% modal uji)</figcaption>
+              <div class="da-batang" title="V7 Physician: +98,1%"><span>V7</span><i style="--n: 62.8%"></i><b>+98,1%</b></div>
+              <div class="da-batang" title="V8 Specialist: +111,3%"><span>V8</span><i style="--n: 71.3%"></i><b>+111,3%</b></div>
+              <div class="da-batang" title="V9 Consultant: +156,2%"><span>V9</span><i style="--n: 100%"></i><b>+156,2%</b></div>
+            </figure>
+            <figure class="da-kartu da-grafik">
+              <figcaption>Profit factor</figcaption>
+              <div class="da-batang" title="V7 Physician: 2,74"><span>V7</span><i style="--n: 77.2%"></i><b>2,74</b></div>
+              <div class="da-batang" title="V8 Specialist: 2,84"><span>V8</span><i style="--n: 80%"></i><b>2,84</b></div>
+              <div class="da-batang" title="V9 Consultant: 3,55"><span>V9</span><i style="--n: 100%"></i><b>3,55</b></div>
+            </figure>
+            <figure class="da-kartu da-grafik da-grafik--risiko">
+              <figcaption>Equity drawdown maks. (MT5)</figcaption>
+              <div class="da-batang" title="V7 Physician: 21,88%"><span>V7</span><i style="--n: 55%"></i><b>21,9%</b></div>
+              <div class="da-batang" title="V8 Specialist: 39,80%"><span>V8</span><i style="--n: 100%"></i><b>39,8%</b></div>
+              <div class="da-batang" title="V9 Consultant: 36,47%"><span>V9</span><i style="--n: 91.6%"></i><b>36,5%</b></div>
+            </figure>
+          </div>
+
+          <div class="da-tabel-wadah">
+            <table class="da-tabel">
+              <thead>
+                <tr><th scope="col">Metrik</th><th scope="col">V7 Physician</th><th scope="col">V8 Specialist</th><th scope="col">V9 Consultant</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Modal uji (deposit awal)</th><td>20.000 USC</td><td>50.000 USC</td><td>50.000 USC</td></tr>
+                <tr><th scope="row">Profit bersih (MT5)</th><td>19.621,29 USC</td><td>55.646,46 USC</td><td>78.118,03 USC</td></tr>
+                <tr><th scope="row">Profit bersih (% modal uji)</th><td>+98,1%</td><td>+111,3%</td><td>+156,2%</td></tr>
+                <tr><th scope="row">Profit factor</th><td>2,74</td><td>2,84</td><td>3,55</td></tr>
+                <tr><th scope="row">Recovery factor</th><td>2,42</td><td>2,21</td><td>2,23</td></tr>
+                <tr><th scope="row">Sharpe ratio</th><td>1,91</td><td>1,34</td><td>1,56</td></tr>
+                <tr><th scope="row">Equity drawdown maks.</th><td>8.093 (21,88%)</td><td>25.206 (39,80%)</td><td>35.022 (36,47%)</td></tr>
+                <tr><th scope="row">Balance drawdown maks.</th><td>2.328 (5,55%)</td><td>5.476 (4,93%)</td><td>8.727 (6,38%)</td></tr>
+                <tr><th scope="row">Total transaksi</th><td>1.061</td><td>1.199</td><td>1.395</td></tr>
+                <tr><th scope="row">Winrate</th><td>90,01%</td><td>89,07%</td><td>90,68%</td></tr>
+                <tr><th scope="row">Rugi beruntun maks.</th><td>4× (-2.328 USC)</td><td>4× (-5.476 USC)</td><td>4× (-8.469 USC)</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="da-kartu da-temuan">
+            <h3>Temuan utama</h3>
+            <ul>
+              <li><strong>V9 Consultant paling efisien:</strong> profit factor 3,55 dan profit bersih tertinggi.</li>
+              <li><strong>V7 Physician paling stabil:</strong> Sharpe ratio 1,91 dan drawdown equity terkecil (21,9%).</li>
+              <li><strong>V8 Specialist di tengah,</strong> dengan drawdown equity tertinggi relatif terhadap puncak (39,8%).</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ====== 2. Analisis per varian (tab) ====== -->
+        <section class="da-bagian" aria-labelledby="da-pervarian">
+          <span class="da-label">Analisis per varian</span>
+          <h2 class="da-judul" id="da-pervarian">Kualitas transaksi tiap varian</h2>
+
+          <div class="da-tab" role="tablist" aria-label="Pilih varian" data-da-tab hidden>
+            <button type="button" role="tab" aria-selected="true" aria-controls="da-v7" id="da-tab-v7">V7 Physician</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="da-v8" id="da-tab-v8" tabindex="-1">V8 Specialist</button>
+            <button type="button" role="tab" aria-selected="false" aria-controls="da-v9" id="da-tab-v9" tabindex="-1">V9 Consultant</button>
+          </div>
+
+          <!-- V7 -->
+          <div class="da-panel" id="da-v7" role="tabpanel" aria-labelledby="da-tab-v7" data-da-panel>
+            <h3 class="da-panel__judul">EAJO V7 Physician <span>Modal terjangkau</span></h3>
+            <div class="da-kpi">
+              <div class="da-kartu"><strong class="da-emas">+98,1%</strong><span>profit bersih (modal uji 20.000 USC)</span></div>
+              <div class="da-kartu"><strong>2,74</strong><span>profit factor</span></div>
+              <div class="da-kartu"><strong>90,0%</strong><span>winrate</span></div>
+              <div class="da-kartu"><strong class="da-oranye">21,9%</strong><span>equity drawdown maks. (MT5)</span></div>
+            </div>
+            <div class="da-dua">
+              <div>
+                <h4>Kualitas transaksi</h4>
+                <ul class="da-daftar">
+                  <li><span>Rata-rata profit / rugi</span><strong>32,38 / -106,35</strong></li>
+                  <li><span>Profit / rugi terbesar</span><strong>247,76 / -811,18</strong></li>
+                  <li><span>Winrate posisi sell / buy</span><strong>90,45% / 89,66%</strong></li>
+                  <li><span>Profit beruntun maks.</span><strong>45× (1.020)</strong></li>
+                  <li><span>Rugi beruntun maks.</span><strong>4× (-2.328)</strong></li>
+                </ul>
+              </div>
+              <div>
+                <h4>Winrate impas vs aktual</h4>
+                <div class="da-impas" style="--impas: 76.7%; --aktual: 90%" role="img" aria-label="Winrate impas 76,7 persen, winrate aktual 90,0 persen">
+                  <div class="da-impas__trek"><i class="da-impas__isi"></i><i class="da-impas__garis"></i></div>
+                  <div class="da-impas__label"><span>Impas 76,7%</span><b>Aktual 90,0%</b></div>
+                </div>
+                <p class="da-teks-kecil">
+                  Rata-rata rugi sekitar 3,3× rata-rata profit, sehingga EA perlu winrate minimal 76,7%
+                  agar impas. Winrate aktualnya unggul <strong>13,4 poin</strong> di atas titik impas.
+                  Winrate sell dan buy hampir sama, artinya EA tidak bergantung pada satu arah pasar.
+                </p>
+                <p class="da-teks-kecil">Drawdown terhadap modal uji: <strong>40,5%</strong>.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- V8 -->
+          <div class="da-panel" id="da-v8" role="tabpanel" aria-labelledby="da-tab-v8" data-da-panel>
+            <h3 class="da-panel__judul">EAJO V8 Specialist <span>Seimbang</span></h3>
+            <div class="da-kpi">
+              <div class="da-kartu"><strong class="da-emas">+111,3%</strong><span>profit bersih (modal uji 50.000 USC)</span></div>
+              <div class="da-kartu"><strong>2,84</strong><span>profit factor</span></div>
+              <div class="da-kartu"><strong>89,1%</strong><span>winrate</span></div>
+              <div class="da-kartu"><strong class="da-oranye">39,8%</strong><span>equity drawdown maks. (MT5)</span></div>
+            </div>
+            <div class="da-dua">
+              <div>
+                <h4>Kualitas transaksi</h4>
+                <ul class="da-daftar">
+                  <li><span>Rata-rata profit / rugi</span><strong>80,40 / -230,02</strong></li>
+                  <li><span>Profit / rugi terbesar</span><strong>714,78 / -1.907,67</strong></li>
+                  <li><span>Winrate posisi sell / buy</span><strong>89,89% / 88,19%</strong></li>
+                  <li><span>Profit beruntun maks.</span><strong>57× (2.995)</strong></li>
+                  <li><span>Rugi beruntun maks.</span><strong>4× (-5.476)</strong></li>
+                </ul>
+              </div>
+              <div>
+                <h4>Winrate impas vs aktual</h4>
+                <div class="da-impas" style="--impas: 74.1%; --aktual: 89.1%" role="img" aria-label="Winrate impas 74,1 persen, winrate aktual 89,1 persen">
+                  <div class="da-impas__trek"><i class="da-impas__isi"></i><i class="da-impas__garis"></i></div>
+                  <div class="da-impas__label"><span>Impas 74,1%</span><b>Aktual 89,1%</b></div>
+                </div>
+                <p class="da-teks-kecil">
+                  Rata-rata rugi sekitar 2,9× rata-rata profit, sehingga EA perlu winrate minimal 74,1%
+                  agar impas. Winrate aktualnya unggul <strong>15,0 poin</strong> di atas titik impas.
+                  Winrate sell dan buy hampir sama, artinya EA tidak bergantung pada satu arah pasar.
+                </p>
+                <p class="da-teks-kecil">Drawdown terhadap modal uji: <strong>50,4%</strong>.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- V9 -->
+          <div class="da-panel" id="da-v9" role="tabpanel" aria-labelledby="da-tab-v9" data-da-panel>
+            <h3 class="da-panel__judul">EAJO V9 Consultant <span>Profit tertinggi</span></h3>
+            <div class="da-kpi">
+              <div class="da-kartu"><strong class="da-emas">+156,2%</strong><span>profit bersih (modal uji 50.000 USC)</span></div>
+              <div class="da-kartu"><strong>3,55</strong><span>profit factor</span></div>
+              <div class="da-kartu"><strong>90,7%</strong><span>winrate</span></div>
+              <div class="da-kartu"><strong class="da-oranye">36,5%</strong><span>equity drawdown maks. (MT5)</span></div>
+            </div>
+            <div class="da-dua">
+              <div>
+                <h4>Kualitas transaksi</h4>
+                <ul class="da-daftar">
+                  <li><span>Rata-rata profit / rugi</span><strong>85,95 / -234,52</strong></li>
+                  <li><span>Profit / rugi terbesar</span><strong>941,06 / -2.468,01</strong></li>
+                  <li><span>Winrate posisi sell / buy</span><strong>90,34% / 91,10%</strong></li>
+                  <li><span>Profit beruntun maks.</span><strong>84× (5.820)</strong></li>
+                  <li><span>Rugi beruntun maks.</span><strong>4× (-8.469)</strong></li>
+                </ul>
+              </div>
+              <div>
+                <h4>Winrate impas vs aktual</h4>
+                <div class="da-impas" style="--impas: 73.2%; --aktual: 90.7%" role="img" aria-label="Winrate impas 73,2 persen, winrate aktual 90,7 persen">
+                  <div class="da-impas__trek"><i class="da-impas__isi"></i><i class="da-impas__garis"></i></div>
+                  <div class="da-impas__label"><span>Impas 73,2%</span><b>Aktual 90,7%</b></div>
+                </div>
+                <p class="da-teks-kecil">
+                  Rata-rata rugi sekitar 2,7× rata-rata profit, sehingga EA perlu winrate minimal 73,2%
+                  agar impas. Winrate aktualnya unggul <strong>17,5 poin</strong> di atas titik impas.
+                  Winrate sell dan buy hampir sama, artinya EA tidak bergantung pada satu arah pasar.
+                </p>
+                <p class="da-teks-kecil">Drawdown terhadap modal uji: <strong>70,0%</strong>.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ====== 3. Metodologi ====== -->
+        <section class="da-bagian" aria-labelledby="da-metode">
+          <span class="da-label">Latar belakang &amp; metodologi</span>
+          <h2 class="da-judul" id="da-metode">Dibuat untuk menutup celah disiplin, bukan celah skill</h2>
+          <p class="da-teks">
+            Developer EAJO adalah trader emas sejak 2015. Saat disiplin, ia profit dengan risiko
+            terukur; saat emosi, ia melakukan <i>revenge trading</i>, menaikkan lot, lalu terkena margin
+            call. Masalahnya ada pada konsistensi manajemen risiko. Dengan latar belakang master di
+            bidang sains, pengalaman mengolah data dengan IBM SPSS, dan kemampuan coding, ia membangun
+            EAJO agar aturan risiko dijalankan tanpa emosi.
+          </p>
+
+          <h3 class="da-subjudul">Lebih dari 1.256 kali percobaan dalam empat tahap</h3>
+          <ol class="da-tahap">
+            <li class="da-kartu"><strong>Single test</strong><span>Uji dasar logika pada satu skenario</span></li>
+            <li class="da-kartu"><strong>Visual test</strong><span>Memeriksa setiap posisi langsung di chart</span></li>
+            <li class="da-kartu"><strong>Stress &amp; delay test</strong><span>Menguji ketahanan saat pasar ekstrem dan eksekusi lambat</span></li>
+            <li class="da-kartu"><strong>Optimization</strong><span>Mencari parameter terbaik</span></li>
+          </ol>
+
+          <h3 class="da-subjudul">Strategi: ikuti tren, manfaatkan koreksi, lot sangat kecil</h3>
+          <p class="da-teks">
+            EAJO membuka posisi mengikuti tren dan memanfaatkan koreksi (<i>retrace</i>), dengan jarak
+            posisi lanjutan (<i>hedging</i>) yang lebar dan ukuran lot sangat kecil.
+          </p>
+          <figure class="da-kartu da-grafik da-rentang">
+            <figcaption>Risiko per transaksi (skala 0–2%)</figcaption>
+            <div class="da-batang" title="Trader pada umumnya: 0,5–2%">
+              <span>Trader umum</span><i class="da-rentang__isi da-rentang__isi--abu" style="--a: 25%; --b: 100%"></i><b>0,5–2%</b>
+            </div>
+            <div class="da-batang" title="EAJO: 0,05–0,2%">
+              <span>EAJO</span><i class="da-rentang__isi" style="--a: 2.5%; --b: 10%"></i><b>0,05–0,2%</b>
+            </div>
+            <p class="da-teks-kecil">Risiko per transaksi EAJO sekitar sepersepuluh trader pada umumnya.</p>
+          </figure>
+
+          <h3 class="da-subjudul">Kalibrasi berkala</h3>
+          <p class="da-teks">
+            Developer mengkalibrasi ulang EA setiap tahun agar tetap sesuai dengan karakter pergerakan
+            emas terkini. Pengguna disarankan memeriksa pembaruan minimal sekali per semester.
+          </p>
+        </section>
+
+        <!-- ====== 4. Forward test ====== -->
+        <section class="da-bagian" aria-labelledby="da-forward">
+          <span class="da-label">Forward test akun riil</span>
+          <h2 class="da-judul" id="da-forward">Hasil di akun riil sejalan dengan backtest</h2>
+          <p class="da-teks">Dijalankan di akun riil pada 1 Okt 2025 – 13 Nov 2026 dengan modal awal 25.000 USC.</p>
+          <div class="da-kpi">
+            <div class="da-kartu"><strong class="da-emas">81.900</strong><span>USC saldo akhir</span></div>
+            <div class="da-kartu"><strong class="da-emas">+227,6%</strong><span>profit dari modal 25.000 USC</span></div>
+            <div class="da-kartu"><strong>89%</strong><span>winrate forward</span></div>
+            <div class="da-kartu"><strong>+45,2%</strong><span>profit bulan terbaik</span></div>
+          </div>
+
+          <div class="da-dua">
+            <div>
+              <h3 class="da-subjudul">Tidak ada indikasi overfitting</h3>
+              <p class="da-teks">
+                Winrate backtest sekitar 90,7% dan winrate forward 89%. Selisih yang kecil menunjukkan
+                strategi tidak "dicocok-cocokkan" dengan data masa lalu, karena hasilnya bertahan saat
+                dijalankan di pasar nyata.
+              </p>
+              <h3 class="da-subjudul">Floating loss terlama: 2 bulan 2 minggu</h3>
+              <p class="da-teks">
+                Ada periode ketika posisi sempat minus dan ditahan dengan hedging selama sekitar 2 bulan
+                2 minggu sebelum pulih. Angka ini menjadi acuan estimasi peluang margin call di bawah.
+              </p>
+            </div>
+            <figure class="da-kartu da-grafik">
+              <figcaption>Profit setahun berdasarkan modal (lot sama)</figcaption>
+              <div class="da-batang" title="25.000 USC ($250): +227,6%"><span>$250</span><i style="--n: 100%"></i><b>+227,6%</b></div>
+              <div class="da-batang" title="40.000 USC ($400): +142,3%"><span>$400</span><i style="--n: 62.5%"></i><b>+142,3%</b></div>
+              <div class="da-batang" title="50.000 USC ($500): +113,8%"><span>$500</span><i style="--n: 50%"></i><b>+113,8%</b></div>
+              <p class="da-teks-kecil">Modal lebih besar dengan lot sama memperkecil persentase profit, tetapi membuat akun jauh lebih tahan.</p>
+            </figure>
+          </div>
+        </section>
+
+        <!-- ====== 5. Analisis risiko ====== -->
+        <section class="da-bagian" aria-labelledby="da-risiko">
+          <span class="da-label">Analisis risiko</span>
+          <h2 class="da-judul" id="da-risiko">Skenario terburuk: DD 95% atau stop out</h2>
+          <p class="da-teks">
+            Simulasi terburuk: EAJO membuka posisi SELL di harga 4000 dengan jarak hedging lebar, lalu
+            harga naik terus tanpa koreksi sama sekali. Tabel berikut menunjukkan di harga berapa modal
+            habis 95% untuk setiap besaran modal.
+          </p>
+          <div class="da-tabel-wadah">
+            <table class="da-tabel da-tabel--teks">
+              <thead>
+                <tr><th scope="col">Modal</th><th scope="col">DD 95% di harga</th><th scope="col">Kekuatan</th><th scope="col">Peluang MC*</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">25.000 USC ($250)</th><td>±4923</td><td>±92.321 pips</td><td>Dekat batas MC</td></tr>
+                <tr><th scope="row">30.000 USC ($300)</th><td>±5093</td><td>±109.286 pips</td><td>±2–5%</td></tr>
+                <tr><th scope="row">40.000 USC ($400)</th><td>±5432</td><td>±143.214 pips</td><td>±0,2–1,4%</td></tr>
+                <tr><th scope="row">50.000 USC ($500)</th><td>±5771</td><td>±177.143 pips</td><td>Hampir nol (di atas ATH 5600)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="da-catatan-kecil">
+            *Estimasi statistik bila posisi tertahan hingga 3 bulan (acuan floating loss terlama 2 bulan
+            2 minggu), dengan asumsi volatilitas emas 20–25% per tahun.
+          </p>
+
+          <figure class="da-kartu da-grafik da-rentang da-grafik--risiko">
+            <figcaption>Peluang DD 95% berdasarkan lama posisi tertahan (modal 30.000 USC, skala 0–35%)</figcaption>
+            <div class="da-batang" title="1 bulan: kurang dari 0,1%"><span>1 bulan</span><i class="da-rentang__isi" style="--a: 0%; --b: 0.6%"></i><b>&lt; 0,1%</b></div>
+            <div class="da-batang" title="3 bulan: ±2–5%"><span>3 bulan</span><i class="da-rentang__isi" style="--a: 5.7%; --b: 14.3%"></i><b>±2–5%</b></div>
+            <div class="da-batang" title="6 bulan: ±9–17%"><span>6 bulan</span><i class="da-rentang__isi" style="--a: 25.7%; --b: 48.6%"></i><b>±9–17%</b></div>
+            <div class="da-batang" title="1 tahun: ±23–33%"><span>1 tahun</span><i class="da-rentang__isi" style="--a: 65.7%; --b: 94.3%"></i><b>±23–33%</b></div>
+            <p class="da-teks-kecil">Batang menunjukkan rentang estimasi. Makin lama posisi tertahan, makin besar peluangnya.</p>
+          </figure>
+        </section>
+
+        <!-- ====== 6. Rekomendasi ====== -->
+        <section class="da-bagian" aria-labelledby="da-rekomendasi">
+          <span class="da-label">Rekomendasi &amp; kesimpulan</span>
+          <h2 class="da-judul" id="da-rekomendasi">Pilih varian sesuai profil risiko</h2>
+          <div class="da-tabel-wadah">
+            <table class="da-tabel da-tabel--teks">
+              <thead>
+                <tr><th scope="col">Varian</th><th scope="col">Modal optimal</th><th scope="col">Profit / tahun*</th><th scope="col">Risiko (DD / modal)*</th><th scope="col">Cocok untuk</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">EAJO V7 Physician</th><td>$200</td><td>+109,7%</td><td>40,1%</td><td>Pemula dengan modal kecil</td></tr>
+                <tr><th scope="row">EAJO V8 Specialist</th><td>$500</td><td>+122,2%</td><td>50,0%</td><td>Modal menengah, ingin profit lebih besar</td></tr>
+                <tr><th scope="row">EAJO V9 Consultant</th><td>$650</td><td>+133,2%</td><td>52,3%</td><td>Modal lebih besar dengan profit paling besar</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="da-catatan-kecil">
+            *Profit/tahun dan risiko di tabel ini dihitung dari equity akhir dan modal optimal tiap
+            varian, sehingga berbeda dasar dengan angka report MT5 di bagian ringkasan.
+          </p>
+
+          <div class="da-dua">
+            <div>
+              <h3 class="da-subjudul">Tips penggunaan</h3>
+              <ul class="da-poin">
+                <li>Gunakan modal minimal sesuai modal optimal tiap varian. Modal lebih besar dengan lot sama memperkecil persentase profit, tetapi membuat akun jauh lebih tahan.</li>
+                <li>Biarkan profit berjalan hingga equity mencapai target sebelum menarik keuntungan besar.</li>
+                <li>Pantau pembaruan EA minimal sekali per semester.</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="da-subjudul">Kesimpulan</h3>
+              <p class="da-teks">
+                Ketiga varian EAJO menunjukkan karakter yang konsisten: winrate sekitar 90%, profit
+                factor 2,7–3,6, rugi beruntun maksimal 4 transaksi, dan hasil forward test yang sejalan
+                dengan backtest. Risiko utamanya adalah tren searah yang sangat panjang tanpa koreksi.
+                Risiko ini makin kecil seiring besarnya modal dan makin besar seiring lamanya posisi tertahan.
+              </p>
+            </div>
+          </div>
+
+          <div class="da-disclaimer">
+            <strong>Disclaimer</strong>
+            <p>
+              Data disusun dari report MT5 Strategy Tester dan dokumen deskripsi developer. Angka peluang
+              adalah estimasi model statistik, bukan jaminan. Hasil masa lalu tidak menjamin hasil di masa
+              depan. Materi ini bukan ajakan atau rekomendasi investasi. Trading emas dengan leverage
+              berisiko tinggi dan dapat menghabiskan seluruh modal, namun di sisi lain juga membuka
+              peluang keuntungan yang besar.
+            </p>
+          </div>
+
+          <p class="da-penutup">Semoga kita mendapatkan keuntungan yang berkah.<span>EAJO Developer · 2026</span></p>
+
+          <div class="da-aksi">
+            <a class="ed-tombol da-unduh" href="assets/download-dokumen/Laporan-Analitik-EAJO.pdf" download>Download laporan EAJO (PDF)</a>
+            <a class="tombol tombol--garis" href="cara-daftar.html">Lihat cara daftar</a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="kaki">
+      <div class="wadah">
+        <div class="kaki__bawah">
+          <p class="kaki__hak">© EADOCTOR 2026</p>
+          <p class="kaki__kecil">
+            Disclaimer: materi ini bukan ajakan atau rekomendasi untuk membeli maupun
+            berinvestasi. Trading emas dengan leverage berisiko tinggi dan dapat
+            menghabiskan seluruh modal. Hasil pengujian masa lalu tidak menjamin hasil di
+            masa depan.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <div class="agen">
+      <p class="agen__pesan" data-wa-pesan role="status" hidden>
+        Nomor WhatsApp admin segera tersedia.
+      </p>
+      <a
+        class="wa-mengambang"
+        href="#"
+        data-wa
+        target="_blank"
+        rel="noopener"
+        aria-label="EADOCTOR Assistant, chat admin via WhatsApp"
+      >
+        <svg class="ikon" aria-hidden="true"><use href="#i-wa" /></svg>
+        <span class="wa-mengambang__teks">
+          <strong>EADOCTOR Assistant</strong>
+          <small>Chat via WhatsApp</small>
+        </span>
+      </a>
+    </div>
+  </body>
+</html>

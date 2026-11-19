@@ -1,0 +1,890 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>EADOCTOR — Expert Advisor Trading</title>
+    <meta
+      name="description"
+      content="Ikut untung dari emas tanpa trading sendiri. Robot EAJO bekerja otomatis, diawasi trader berpengalaman. Akun dan dana tetap atas nama Anda."
+    />
+    <meta name="theme-color" content="#04211b" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/main.js" defer></script>
+  </head>
+  <body>
+    <!-- ================= IKON & ROBOT ================= -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <symbol id="i-grafik" viewBox="0 0 24 24">
+        <path d="M3 3v18h18" /><path d="m7 15 4-4 3 3 6-7" /><path d="M16 7h4v4" />
+      </symbol>
+      <symbol id="i-perisai" viewBox="0 0 24 24">
+        <path d="M12 3 4.5 6v6c0 4.4 3.2 7.9 7.5 9 4.3-1.1 7.5-4.6 7.5-9V6L12 3Z" /><path d="m9 12 2 2 4-4" />
+      </symbol>
+      <symbol id="i-cpu" viewBox="0 0 24 24">
+        <rect x="6" y="6" width="12" height="12" rx="2" /><path d="M9.5 9.5h5v5h-5z" />
+        <path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4" />
+      </symbol>
+      <symbol id="i-jam" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" />
+      </symbol>
+      <symbol id="i-cek" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" /><path d="m8 12 3 3 5-6" />
+      </symbol>
+      <symbol id="i-hadiah" viewBox="0 0 24 24">
+        <rect x="3" y="8" width="18" height="4" rx="1" /><path d="M5 12v8h14v-8M12 8v12" />
+        <path d="M12 8S10.5 4 8 4a2 2 0 0 0 0 4h4Zm0 0s1.5-4 4-4a2 2 0 0 1 0 4h-4Z" />
+      </symbol>
+      <symbol id="i-panah" viewBox="0 0 24 24">
+        <path d="M5 12h14M13 6l6 6-6 6" />
+      </symbol>
+      <symbol id="i-wa" viewBox="0 0 24 24">
+        <path d="M3.6 20.4 4.9 16A8.6 8.6 0 1 1 8 19.1l-4.4 1.3Z" />
+        <path
+          d="M9.2 8.3c.3-.6.6-.6.9-.6h.6c.2 0 .4.1.5.4l.7 1.7c.1.3 0 .5-.1.6l-.5.6c-.1.2-.2.3 0 .6.3.6.8 1.2 1.3 1.6.5.5 1.1.8 1.6 1 .3.1.4.1.6-.1l.6-.7c.2-.2.4-.2.6-.1l1.7.8c.2.1.4.2.4.4 0 .3 0 1-.5 1.5-.4.4-1.2.8-2 .7-1-.1-2.4-.6-3.8-1.9-1.4-1.3-2.2-2.8-2.4-3.8-.2-1 .1-1.8.3-2.1Z"
+          fill="currentColor"
+          stroke="none"
+        />
+      </symbol>
+      <!-- Ikon garis untuk beranda -->
+      <symbol id="i-tas" viewBox="0 0 24 24">
+        <rect x="3" y="7" width="18" height="13" rx="2" /><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" /><path d="M3 12.5h18M10.5 12.5v1.5h3v-1.5" />
+      </symbol>
+      <symbol id="i-rumah" viewBox="0 0 24 24">
+        <path d="M3 11 12 4l9 7" /><path d="M5.5 9.5V20h13V9.5" /><path d="M10 20v-5.5h4V20" />
+      </symbol>
+      <symbol id="i-tunas" viewBox="0 0 24 24">
+        <path d="M12 21v-9" /><path d="M12 12c0-4 3-6.5 7.5-6.5 0 4.2-3 6.5-7.5 6.5Z" /><path d="M12 14.5C12 11.3 9.6 9 5 9c0 3.4 2.6 5.5 7 5.5Z" /><path d="M7.5 21h9" />
+      </symbol>
+      <symbol id="i-koper" viewBox="0 0 24 24">
+        <circle cx="9" cy="8" r="3.5" /><path d="M2.5 20c.6-3.6 3.2-5.5 6.5-5.5s5.9 1.9 6.5 5.5" /><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.3 14.9c1.8.8 2.9 2.5 3.2 5.1" />
+      </symbol>
+      <symbol id="i-orang" viewBox="0 0 24 24">
+        <circle cx="12" cy="7.5" r="3.8" /><path d="M4.5 21c.7-4.3 3.6-6.5 7.5-6.5s6.8 2.2 7.5 6.5" />
+      </symbol>
+      <symbol id="i-awas" viewBox="0 0 24 24">
+        <path d="M12 3.5 2.5 20h19L12 3.5Z" /><path d="M12 10v4.5" /><path d="M12 17.3v.2" />
+      </symbol>
+      <!-- Robot 3D EAJO (dari index2) -->
+      <defs>
+        <radialGradient id="shell" cx="0.35" cy="0.3" r="0.8"><stop offset="0" stop-color="#FFFFFF"/><stop offset="0.55" stop-color="#E4EAE7"/><stop offset="1" stop-color="#8FA39C"/></radialGradient>
+        <linearGradient id="visor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0A1E18"/><stop offset="1" stop-color="#134235"/></linearGradient>
+        <radialGradient id="eye" cx="0.5" cy="0.45" r="0.6"><stop offset="0" stop-color="#FFFBE6"/><stop offset="0.5" stop-color="#F5D57A"/><stop offset="1" stop-color="#D4AF37"/></radialGradient>
+        <linearGradient id="joint" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A5A55"/><stop offset="1" stop-color="#1A2421"/></linearGradient>
+        <radialGradient id="goldBall" cx="0.35" cy="0.3" r="0.75"><stop offset="0" stop-color="#FFF4C4"/><stop offset="0.5" stop-color="#E9C46A"/><stop offset="1" stop-color="#9A6B16"/></radialGradient>
+        <linearGradient id="goldTop" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF4C4"/><stop offset="0.5" stop-color="#F0CF73"/><stop offset="1" stop-color="#C99A35"/></linearGradient>
+        <linearGradient id="goldFront" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9C46A"/><stop offset="0.55" stop-color="#C08A2C"/><stop offset="1" stop-color="#7A5410"/></linearGradient>
+        <linearGradient id="goldSide" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#A9771F"/><stop offset="1" stop-color="#6A470C"/></linearGradient>
+        <filter id="glowF" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="soft" x="-30%" y="-100%" width="160%" height="300%"><feGaussianBlur stdDeviation="8"/></filter>
+        <symbol id="robot" viewBox="0 0 420 460">
+          <ellipse cx="210" cy="440" rx="140" ry="14" fill="#000" fill-opacity="0.35" filter="url(#soft)"/>
+          <rect x="204" y="34" width="12" height="40" rx="6" fill="url(#joint)"/>
+          <circle cx="210" cy="28" r="17" fill="url(#goldBall)"/>
+          <circle cx="204" cy="22" r="5" fill="#FFF" fill-opacity="0.7"/>
+          <circle cx="100" cy="150" r="27" fill="url(#goldBall)"/><circle cx="100" cy="150" r="12" fill="url(#joint)"/>
+          <circle cx="320" cy="150" r="27" fill="url(#goldBall)"/><circle cx="320" cy="150" r="12" fill="url(#joint)"/>
+          <rect x="105" y="70" width="210" height="160" rx="64" fill="url(#shell)"/>
+          <ellipse cx="160" cy="92" rx="40" ry="12" fill="#FFF" fill-opacity="0.6" filter="url(#soft)"/>
+          <rect x="132" y="102" width="156" height="94" rx="40" fill="url(#visor)"/>
+          <rect x="155" y="129" width="34" height="40" rx="15" fill="url(#eye)" filter="url(#glowF)"/>
+          <rect x="231" y="129" width="34" height="40" rx="15" fill="url(#eye)" filter="url(#glowF)"/>
+          <path d="M190 180 Q210 191 230 180" fill="none" stroke="#F5D57A" stroke-width="5" stroke-linecap="round"/>
+          <path d="M146 114 Q205 101 272 112 L270 122 Q205 113 148 126 Z" fill="#FFF" fill-opacity="0.18"/>
+          <rect x="185" y="226" width="50" height="28" rx="8" fill="url(#joint)"/>
+          <path d="M128 285 C 78 300, 82 360, 136 376" fill="none" stroke="url(#joint)" stroke-width="26" stroke-linecap="round"/>
+          <path d="M292 285 C 342 300, 338 360, 284 376" fill="none" stroke="url(#joint)" stroke-width="26" stroke-linecap="round"/>
+          <rect x="120" y="246" width="180" height="156" rx="60" fill="url(#shell)"/>
+          <ellipse cx="170" cy="268" rx="32" ry="10" fill="#FFF" fill-opacity="0.55" filter="url(#soft)"/>
+          <circle cx="210" cy="296" r="26" fill="url(#goldBall)" stroke="#FFF4C4" stroke-width="2"/>
+          <polyline points="196,306 205,297 212,302 224,288" fill="none" stroke="#5A3D0A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <polygon points="152,330 268,330 286,352 134,352" fill="url(#goldTop)"/>
+          <polygon points="134,352 286,352 300,400 120,400" fill="url(#goldFront)"/>
+          <polygon points="268,330 286,352 300,400 292,376" fill="url(#goldSide)"/>
+          <text x="210" y="346" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#8A5F10">Au</text>
+          <text x="210" y="384" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#5A3D0A">999.9</text>
+          <path d="M150 356 L280 356" stroke="#FFF4C4" stroke-opacity="0.6" stroke-width="2"/>
+          <circle cx="130" cy="372" r="22" fill="url(#shell)"/>
+          <circle cx="290" cy="372" r="22" fill="url(#shell)"/>
+          <ellipse cx="210" cy="414" rx="46" ry="9" fill="url(#joint)"/>
+          <path d="M322 300 L326 314 L340 318 L326 322 L322 336 L318 322 L304 318 L318 314 Z" fill="#FFF4C4"/>
+          <path d="M102 318 L104.5 326 L112 328.5 L104.5 331 L102 339 L99.5 331 L92 328.5 L99.5 326 Z" fill="#FFF4C4"/>
+        </symbol>
+      </defs>
+    </svg>
+
+    <a class="lewati" href="#utama">Lewati ke konten</a>
+
+    <!-- ================= NAVIGASI ================= -->
+    <header class="nav" data-nav>
+      <div class="wadah nav__isi">
+        <a class="merek" href="#home" aria-label="EADOCTOR, ke beranda">
+          <img src="assets/favicon.svg" alt="" width="30" height="30" />EA<span>DOCTOR</span>
+        </a>
+        <nav class="nav__pil" id="nav-tautan" data-nav-tautan aria-label="Navigasi utama">
+          <a href="#home">Home</a>
+          <a href="tentang.html">Tentang</a>
+          <a href="produk.html">Produk</a>
+          <a href="promosi.html">Promosi</a>
+          <a href="#faq">QnA</a>
+          <div class="nav__lagi" data-nav-lagi>
+            <button class="nav__lagi-tombol" type="button" data-nav-lagi-tombol aria-expanded="false" aria-controls="nav-lagi-menu">
+              More<svg class="nav__lagi-panah" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" /></svg>
+            </button>
+            <div class="nav__lagi-menu" id="nav-lagi-menu">
+              <a href="tonton-akun-real.html">Tonton Akun Real</a>
+              <a href="cara-daftar.html">Cara Daftar</a>
+              <a href="data-analytic.html">Data Analytic</a>
+              <a href="download-dokumen.html">Download Dokumen</a>
+              <a href="https://h5.vantagemarketapp.com/h5/thirdparty/support/register?agentAccount=MzYwMTUwOTc=&invitecode=kVxIS4rZ" target="_blank" rel="noopener">Download Apps MT5</a>
+            </div>
+          </div>
+          <a class="nav__seluler" href="https://vigco.co/la-s1com-inv/id/kVxIS4rZ" target="_blank" rel="noopener">Daftar</a>
+        </nav>
+        <div class="nav__aksi">
+          <a class="tombol tombol--emas tombol--kecil" href="https://vigco.co/la-s1com-inv/id/kVxIS4rZ" target="_blank" rel="noopener">Daftar</a>
+          <button
+            class="nav__tombol"
+            type="button"
+            data-nav-tombol
+            aria-controls="nav-tautan"
+            aria-expanded="false"
+            aria-label="Buka menu"
+          >
+            <span class="nav__garis"></span><span class="nav__garis"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="utama">
+      <!-- ================= 1. HERO ================= -->
+      <section class="hero hm-hero" id="home">
+        <div class="hero__air" aria-hidden="true">EADOCTOR</div>
+        <div class="wadah hm-hero__kisi">
+          <div class="hm-hero__kepala">
+            <span class="eyebrow"
+              ><svg class="ikon"><use href="#i-cpu" /></svg>EAJO · Robot Trading Emas</span
+            >
+            <h1 class="hm-hero__judul">
+              Ingin ikut untung dari emas, tapi
+              <span class="hero__gradasi">tidak sempat atau belum bisa trading?</span>
+            </h1>
+          </div>
+          <div class="hm-hero__robot">
+            <svg class="robot" viewBox="0 0 420 460" role="img" aria-label="Robot EAJO memegang emas batangan"><use href="#robot" /></svg>
+          </div>
+          <div class="hm-hero__badan">
+            <p class="hm-hero__teks">
+              Biarkan robot EAJO yang bekerja. Dirancang dan diawasi oleh trader berpengalaman,
+              berjalan otomatis sepanjang jam pasar. Anda cukup ikut menyalin, akun dan dana
+              tetap atas nama Anda.
+            </p>
+            <div class="hm-hero__aksi">
+              <a class="tombol tombol--emas" href="https://vigco.co/la-s1com-inv/id/kVxIS4rZ" target="_blank" rel="noopener"
+                >Mulai sekarang<svg class="ikon"><use href="#i-panah" /></svg
+              ></a>
+              <a class="tombol tombol--garis" href="#cara-ikut">Lihat cara kerjanya</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Baris kepercayaan berjalan: isi digandakan oleh main.js agar putaran mulus -->
+        <div class="wadah">
+          <div class="berjalan berjalan--hero" data-berjalan>
+            <div class="berjalan__jalur">
+              <ul class="berjalan__grup">
+                <li class="berjalan__item"><svg class="ikon" aria-hidden="true"><use href="#i-cek" /></svg><strong>Akun &amp; dana milik Anda</strong></li>
+                <li class="berjalan__item"><svg class="ikon" aria-hidden="true"><use href="#i-cek" /></svg><strong>Tarik kapan saja</strong></li>
+                <li class="berjalan__item"><svg class="ikon" aria-hidden="true"><use href="#i-cek" /></svg><strong>Mulai dari $200</strong></li>
+                <li class="berjalan__item"><svg class="ikon" aria-hidden="true"><use href="#i-cek" /></svg><strong>Bisa dipantau langsung</strong></li>
+                <li class="berjalan__item"><svg class="ikon" aria-hidden="true"><use href="#i-cek" /></svg><strong>Risiko dibatasi dengan kode</strong></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 2. UNTUK SIAPA ================= -->
+      <section class="ed-bagian hm-bagian hm-garis" id="untuk-siapa">
+        <div class="wadah">
+          <div class="ed-kepala" data-animasi>
+            <span class="ed-label">Cocok untuk Anda</span>
+            <h2 class="ed-judul">Untuk siapa EAJO?</h2>
+          </div>
+          <div class="hm-kisi-4">
+            <article class="ed-kartu hm-siapa" data-animasi>
+              <span class="hm-ikon"><svg class="ikon" aria-hidden="true"><use href="#i-tas" /></svg></span>
+              <h3>Pekerja sibuk</h3>
+              <p>Robot menjalankan trading berdasarkan kode. Anda cukup cek hasilnya setiap minggu.</p>
+            </article>
+            <article class="ed-kartu hm-siapa" data-animasi>
+              <span class="hm-ikon"><svg class="ikon" aria-hidden="true"><use href="#i-rumah" /></svg></span>
+              <h3>Ibu rumah tangga</h3>
+              <p>Ingin penghasilan tambahan dari rumah tanpa harus belajar analisa teknikal.</p>
+            </article>
+            <article class="ed-kartu hm-siapa" data-animasi>
+              <span class="hm-ikon"><svg class="ikon" aria-hidden="true"><use href="#i-tunas" /></svg></span>
+              <h3>Pemula</h3>
+              <p>Penasaran dengan trading emas, tapi belum punya ilmu dan pengalaman.</p>
+            </article>
+            <article class="ed-kartu hm-siapa" data-animasi>
+              <span class="hm-ikon"><svg class="ikon" aria-hidden="true"><use href="#i-koper" /></svg></span>
+              <h3>Pebisnis &amp; pensiunan</h3>
+              <p>Ingin sebagian dana ikut bekerja tanpa harus diurus setiap hari.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 3. KENAPA RUGI ================= -->
+      <section class="ed-bagian hm-bagian hm-gelap" id="kenapa-rugi">
+        <div class="wadah">
+          <div class="ed-kepala" data-animasi>
+            <span class="ed-label">Masalah yang sering terjadi</span>
+            <h2 class="ed-judul">Kenapa banyak orang rugi saat trading sendiri?</h2>
+          </div>
+          <ol class="hm-masalah">
+            <li data-animasi><span class="hm-no">1</span><h3>Tidak ada waktu memantau pasar</h3></li>
+            <li data-animasi><span class="hm-no">2</span><h3>Belum punya ilmu dan pengalaman</h3></li>
+            <li data-animasi><span class="hm-no">3</span><h3>Emosi: takut, serakah, dan balas dendam</h3></li>
+          </ol>
+          <div class="hm-penutup-teks" data-animasi>
+            <p>
+              Developer EAJO pernah mengalaminya sendiri. Karena itu ia membuat robot yang
+              mengikuti aturan tanpa emosi.
+            </p>
+            <a class="hm-tautan" href="tentang.html">Kenalan dengan developer &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 4. ROBOT + TRADER ================= -->
+      <section class="ed-bagian hm-bagian hm-garis hm-garis--balik" id="robot-trader">
+        <div class="wadah">
+          <div class="ed-kepala" data-animasi>
+            <span class="ed-label">Cara EAJO bekerja</span>
+            <h2 class="ed-judul">Robot + trader profesional: <em>gabungan dua kekuatan</em></h2>
+          </div>
+          <div class="hm-duo">
+            <article class="ed-kartu" data-animasi>
+              <div class="hm-duo__kepala">
+                <span class="hm-ikon"><svg class="ikon" aria-hidden="true"><use href="#i-cpu" /></svg></span>
+                <h3>Robot (EA)</h3>
+              </div>
+              <ul class="hm-centang">
+                <li><svg class="ikon" aria-hidden="true"><use href="#i-cek" /></svg>Tidak punya emosi</li>
+                <li><svg class="ikon" aria-hidden="true"><use href="#i-cek" /></svg>Disiplin mengikuti aturan</li>
+                <li><svg class="ikon" aria-hidden="true"><use href="#i-cek" /></svg>Bekerja tanpa lelah</li>
+                <li><svg class="ikon" aria-hidden="true"><use href="#i-cek" /></svg>Eksekusi cepat</li>
+              </ul>
+            </article>
+            <article class="ed-kartu" data-animasi>
+              <div class="hm-duo__kepala">
+                <span class="hm-ikon"><svg class="ikon" aria-hidden="true"><use href="#i-orang" /></svg></span>
+                <h3>Trader profesional</h3>
+              </div>
+              <ul class="hm-centang">
+                <li><svg class="ikon" aria-hidden="true"><use href="#i-cek" /></svg>Merancang strategi</li>
+                <li><svg class="ikon" aria-hidden="true"><use href="#i-cek" /></svg>Mengawasi kondisi pasar</li>
+                <li><svg class="ikon" aria-hidden="true"><use href="#i-cek" /></svg>Nonaktifkan EA saat berita besar</li>
+                <li><svg class="ikon" aria-hidden="true"><use href="#i-cek" /></svg>Kalibrasi ulang setiap tahun</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 5. CARA IKUT ================= -->
+      <section class="ed-bagian hm-bagian hm-gelap" id="cara-ikut">
+        <div class="wadah">
+          <div class="ed-kepala" data-animasi>
+            <span class="ed-label">Mudah dan cepat</span>
+            <h2 class="ed-judul">Cara ikut, cukup <em>3 langkah</em></h2>
+          </div>
+          <ol class="hm-langkah">
+            <li data-animasi><span class="hm-no">1</span><p>Daftar &amp; buka akun</p></li>
+            <li data-animasi><span class="hm-no">2</span><p>Pilih paket EAJO sesuai modal Anda</p></li>
+            <li data-animasi><span class="hm-no">3</span><p>Klik Copy. Selesai.</p></li>
+          </ol>
+          <div class="ed-aksi">
+            <a class="tombol tombol--garis" href="cara-daftar.html">Lihat panduan lengkap<svg class="ikon"><use href="#i-panah" /></svg></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 6. PEGANG KENDALI ================= -->
+      <section class="ed-bagian hm-bagian hm-garis" id="kendali">
+        <div class="wadah">
+          <div class="ed-kepala" data-animasi>
+            <span class="ed-label">Aman di tangan Anda</span>
+            <h2 class="ed-judul">Anda tetap pegang kendali</h2>
+          </div>
+          <div class="ed-kartu hm-kendali" data-animasi>
+            <ul class="hm-centang">
+              <li><svg class="ikon" aria-hidden="true"><use href="#i-cek" /></svg>Akun atas nama Anda sendiri</li>
+              <li><svg class="ikon" aria-hidden="true"><use href="#i-cek" /></svg>Developer tidak bisa menyentuh dana Anda</li>
+              <li><svg class="ikon" aria-hidden="true"><use href="#i-cek" /></svg>Tarik profit atau modal kapan saja</li>
+              <li><svg class="ikon" aria-hidden="true"><use href="#i-cek" /></svg>Pause atau stop kapan saja</li>
+              <li><svg class="ikon" aria-hidden="true"><use href="#i-cek" /></svg><a href="#akun-live">Tonton langsung akun master</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 7. PILIH PAKET ================= -->
+      <section class="ed-bagian hm-bagian hm-gelap" id="produk">
+        <div class="wadah">
+          <div class="ed-kepala" data-animasi>
+            <span class="ed-label">Paket EAJO</span>
+            <h2 class="ed-judul">Pilih paket sesuai <em>modal Anda</em></h2>
+          </div>
+          <div class="ed-kisi">
+            <article class="ed-kartu hm-paket" data-animasi>
+              <p class="ed-produk__versi">EAJO V7</p>
+              <h3 class="ed-produk__nama">Physician</h3>
+              <p class="hm-paket__untuk">Untuk modal kecil</p>
+              <p class="hm-paket__harga"><small>Mulai dari</small>$200</p>
+              <a class="tombol tombol--garis tombol--lebar" href="https://vigco.co/la-s1com-inv/id/kVxIS4rZ" target="_blank" rel="noopener">Pilih paket</a>
+            </article>
+            <article class="ed-kartu ed-kartu--sorot hm-paket" data-animasi>
+              <p class="ed-produk__versi">EAJO V8</p>
+              <h3 class="ed-produk__nama">Specialist</h3>
+              <p class="hm-paket__untuk">Pilihan seimbang</p>
+              <p class="hm-paket__harga"><small>Modal</small>$500</p>
+              <a class="tombol tombol--emas tombol--lebar" href="https://vigco.co/la-s1com-inv/id/kVxIS4rZ" target="_blank" rel="noopener">Pilih paket</a>
+            </article>
+            <article class="ed-kartu hm-paket" data-animasi>
+              <p class="ed-produk__versi">EAJO V9</p>
+              <h3 class="ed-produk__nama">Consultant</h3>
+              <p class="hm-paket__untuk">Potensi profit paling besar</p>
+              <p class="hm-paket__harga"><small>Modal</small>$650</p>
+              <a class="tombol tombol--garis tombol--lebar" href="https://vigco.co/la-s1com-inv/id/kVxIS4rZ" target="_blank" rel="noopener">Pilih paket</a>
+            </article>
+          </div>
+          <div class="ed-aksi">
+            <a class="ed-tombol" href="#" data-wa data-wa-teks="Halo EADOCTOR, saya bingung memilih paket EAJO (V7 / V8 / V9). Boleh konsultasi?" target="_blank" rel="noopener">Bingung memilih? Konsultasi gratis</a>
+          </div>
+          <p class="hm-tengah"><a class="hm-tautan" href="produk.html">Lihat detail profit &amp; risiko tiap paket &rarr;</a></p>
+        </div>
+      </section>
+
+      <!-- ================= 8. LIHAT DATANYA ================= -->
+      <section class="ed-bagian hm-bagian hm-garis hm-garis--balik" id="lihat-data">
+        <div class="wadah">
+          <div class="ed-kepala hm-data" data-animasi>
+            <span class="ed-label"><svg class="ikon"><use href="#i-grafik" /></svg>Terbuka untuk diperiksa</span>
+            <h2 class="ed-judul">Jangan percaya kata&#8209;kata, <em>lihat datanya</em></h2>
+            <p class="ed-subjudul">Semua performa EAJO bisa Anda periksa sendiri.</p>
+            <div class="hm-aksi">
+              <a class="tombol tombol--emas" href="#akun-live">Tonton akun live</a>
+              <a class="tombol tombol--garis" href="assets/download-dokumen/Laporan-Analitik-EAJO.pdf" download>Unduh laporan analitik (PDF)</a>
+            </div>
+          </div>
+
+          <!-- 9. Jujur soal risiko (satu section dengan Lihat datanya agar garis emas menyambung) -->
+          <div class="hm-risiko" data-animasi>
+            <div class="hm-risiko__kepala">
+              <svg class="ikon" aria-hidden="true"><use href="#i-awas" /></svg>
+              <h2>Jujur soal risiko</h2>
+            </div>
+            <p>
+              Trading tetap berisiko. Ada masa akun minus sementara (terlama 2 bulan 2 minggu),
+              dan dalam kondisi terburuk modal bisa hilang (margin call). Untuk modal sesuai paket,
+              peluangnya diperkirakan sekitar 0,2–1% (estimasi, bukan jaminan). Gunakan uang dingin,
+              bukan uang kebutuhan sehari-hari.
+            </p>
+            <a href="data-analytic.html#da-risiko">Pelajari risikonya &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= NONTON AKUN LIVE ================= -->
+      <section class="bagian bagian--gelap" id="akun-live">
+        <div class="wadah">
+          <div class="bagian__kepala bagian__kepala--tengah" data-animasi>
+            <span class="eyebrow">Nonton Akun Live</span>
+            <h2 class="bagian__judul">Penasaran isi <em>akun master</em>?</h2>
+            <p class="bagian__teks">
+              Lihat langsung aktivitas trading EAJO secara realtime lewat aplikasi MT5. Akun ini
+              hanya untuk melihat performa setiap paket (read-only). Anda tidak bisa melakukan
+              trading di dalamnya.
+            </p>
+          </div>
+        <div class="halaman__isi akun-live daftar-langkah">
+          <h2 class="daftar-langkah__judul">Cara menonton</h2>
+          <ol class="qna__langkah">
+            <li>
+              <h3>Daftar akun terlebih dahulu</h3>
+              <p>Ikuti langkah di halaman <a class="akun-live__tautan" href="cara-daftar.html">Cara Daftar</a>.</p>
+            </li>
+            <li>
+              <h3>Download aplikasi MetaTrader 5 (MT5)</h3>
+              <p>Tersedia di Play Store / App Store. <a class="akun-live__tautan" href="https://h5.vantagemarketapp.com/h5/thirdparty/support/register?agentAccount=MzYwMTUwOTc=&invitecode=kVxIS4rZ" target="_blank" rel="noopener">Klik di sini untuk download</a></p>
+            </li>
+            <li>
+              <h3>Buka MT5, pilih menu "Kelola akun"</h3>
+              <p>Lalu ketuk tanda "+".</p>
+            </li>
+            <li>
+              <h3>Pilih "Login ke akun yang sudah ada"</h3>
+              <p>Cari dan pilih broker <strong>Vantage</strong> (Vantage Pty).</p>
+            </li>
+            <li>
+              <h3>Isi data login sesuai tabel di bawah</h3>
+              <ul class="daftar-langkah__pilihan">
+                <li><span>Login</span><strong>Nomor akun master yang ingin ditonton</strong></li>
+                <li><span>Password</span><strong class="akun-live__nomor">Nonton_123</strong></li>
+                <li><span>Server</span><strong>Live-11</strong></li>
+              </ul>
+            </li>
+            <li>
+              <h3>Ketuk "Login". Selesai.</h3>
+              <p>Posisi dan riwayat transaksi EAJO bisa Anda pantau langsung dari menu <strong>Trade</strong> dan <strong>History</strong>.</p>
+            </li>
+          </ol>
+
+          <h2 class="daftar-langkah__judul daftar-langkah__judul--lanjut">Daftar akun master</h2>
+          <p class="akun-live__info">Semua akun memakai server dan password yang sama.</p>
+          <div class="akun-live__tabel-wadah">
+            <table class="akun-live__tabel">
+              <thead>
+                <tr><th scope="col">Strategi</th><th scope="col">Nomor akun</th><th scope="col">Server</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">EAJO V7 Physician</th>
+                  <td><strong class="akun-live__nomor">36505677</strong></td>
+                  <td>Live-11</td>
+                </tr>
+                <tr>
+                  <th scope="row">EAJO V8 Specialist</th>
+                  <td><strong class="akun-live__nomor">36504850</strong></td>
+                  <td>Live-11</td>
+                </tr>
+                <tr>
+                  <th scope="row">EAJO V9 Consultant</th>
+                  <td><span class="akun-live__tba">TBA 1 Des 2026</span></td>
+                  <td>Live-11</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <ul class="daftar-langkah__pilihan akun-live__login">
+            <li><span>Password (read-only)</span><strong class="akun-live__nomor">Nonton_123</strong></li>
+          </ul>
+        </div>
+        </div>
+      </section>
+
+      <!-- ================= QNA ================= -->
+      <section class="bagian hm-garis hm-garis--atas" id="faq">
+        <div class="wadah">
+          <div class="bagian__kepala bagian__kepala--tengah" data-animasi>
+            <span class="eyebrow">Tanya Jawab</span>
+            <h2 class="bagian__judul">Pertanyaan yang sering ditanyakan</h2>
+            <p class="bagian__teks">Klik pertanyaan untuk melihat jawabannya.</p>
+          </div>
+          <!-- Salin satu blok <details class="fq-item"> untuk menambah pertanyaan. Nomor bulat dibuat otomatis oleh CSS. -->
+          <div class="fq">
+          <details class="fq-item">
+            <summary class="fq-tanya">Apa itu copy trading?</summary>
+            <div class="fq-jawab">
+              <p>
+                Ada dua akun: <strong>master</strong> yang mengambil keputusan buka/tutup posisi,
+                dan <strong>follower</strong> (akun Anda) yang posisinya disalin otomatis.
+              </p>
+              <ol class="qna__langkah">
+                <li>
+                  <h3>Master membuka posisi</h3>
+                  <p>Trader master menganalisa lalu entry sesuai sistemnya.</p>
+                </li>
+                <li>
+                  <h3>Sistem menyalin ke akun Anda</h3>
+                  <p>Posisi, arah, dan ukuran lot disesuaikan dengan ekuitas akun Anda secara proporsional.</p>
+                </li>
+                <li>
+                  <h3>Profit dibagi</h3>
+                  <p>
+                    Saat posisi untung, sebagian profit menjadi hak master sebagai kompensasi. Pada
+                    sistem ini pembagiannya <strong>30% untuk master, 70% untuk Anda</strong>.
+                  </p>
+                </li>
+                <li>
+                  <h3>Dana tetap di akun Anda</h3>
+                  <p>Anda yang deposit dan withdraw langsung lewat broker. Master tidak pernah memegang uang Anda.</p>
+                </li>
+              </ol>
+            </div>
+          </details>
+
+          <details class="fq-item">
+            <summary class="fq-tanya">Berapa modal minimum untuk ikut?</summary>
+            <div class="fq-jawab">
+              <p>EAJO V7 Physician mulai <strong>$200</strong> (20.000 USC), V8 Specialist <strong>$500</strong>, V9 Consultant <strong>$650</strong>.</p>
+            </div>
+          </details>
+
+          <details class="fq-item">
+            <summary class="fq-tanya">Saat sign up, pakai email atau nomor HP?</summary>
+            <div class="fq-jawab">
+              <p>
+                Pakai email. Nomor HP tetap diminta saat verifikasi akun. Keduanya nanti dipakai,
+                karena penarikan dana membutuhkan OTP dari email maupun WhatsApp/nomor HP.
+              </p>
+            </div>
+          </details>
+
+          <details class="fq-item">
+            <summary class="fq-tanya">Saat buka Account Live, platform dan jenis akun pilih apa?</summary>
+            <div class="fq-jawab">
+              <p>Buat dua akun:</p>
+              <ul>
+                <li>
+                  <strong>Akun ke-1:</strong> Platform MT5, jenis akun Swap Free STP Cent. Setelah
+                  submit, data akun MT5 dikirim ke email. Abaikan saja kalau tidak ingin trading mandiri.
+                </li>
+                <li>
+                  <strong>Akun ke-2:</strong> buka Account Live lagi. Platform Copy Trading, jenis akun
+                  Swap Free STP Cent, nama akun bebas (boleh diganti atau dibiarkan default). Prosesnya 2–5 menit.
+                </li>
+              </ul>
+              <p>Akun ke-2 inilah yang dipakai untuk copy trading.</p>
+            </div>
+          </details>
+
+          <details class="fq-item">
+            <summary class="fq-tanya">Apakah dana saya dipegang oleh developer?</summary>
+            <div class="fq-jawab">
+              <p>
+                Tidak. Dana sepenuhnya ada di akun broker Vantage atas nama Anda sendiri. Developer
+                EADOCTOR hanya membagikan sistem; deposit dan withdraw Anda lakukan sendiri.
+              </p>
+            </div>
+          </details>
+
+          <details class="fq-item">
+            <summary class="fq-tanya">Bisa berhenti kapan saja?</summary>
+            <div class="fq-jawab">
+              <p>Bisa, dengan dua cara yang hasilnya berbeda:</p>
+              <ul>
+                <li>
+                  <strong>Pause:</strong> posisi yang sedang terbuka tidak ikut tertutup. Anda bisa
+                  menutupnya sendiri dari akun masing-masing. Setelah pause, tidak ada posisi baru yang dibuka.
+                </li>
+                <li><strong>Stop copy:</strong> semua posisi langsung tertutup otomatis.</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="fq-item">
+            <summary class="fq-tanya">Bagaimana kalau saya berhenti saat floating minus besar, misalnya 52%?</summary>
+            <div class="fq-jawab">
+              <p>Tidak disarankan, tetapi keputusannya ada di tangan Anda. Konsekuensinya:</p>
+              <ul>
+                <li>
+                  <strong>Stop copy saat floating:</strong> minus yang tadinya mengambang menjadi
+                  kerugian nyata. Minus 52% berarti modal tinggal 48%.
+                </li>
+                <li>
+                  <strong>Dibiarkan:</strong> ada dua kemungkinan, harga berbalik sehingga posisi
+                  pulih, atau terkena margin call. Berdasarkan estimasi statistik untuk modal yang
+                  disarankan, peluang margin call sekitar 0,2–1% bila posisi tertahan hingga 3 bulan
+                  (estimasi, bukan jaminan).
+                </li>
+              </ul>
+              <p>Artinya, berhenti di tengah tidak menghilangkan risiko, hanya mengubahnya menjadi kerugian yang pasti.</p>
+            </div>
+          </details>
+
+          <details class="fq-item">
+            <summary class="fq-tanya">Berapa lama sampai kelihatan hasilnya?</summary>
+            <div class="fq-jawab">
+              <p>
+                Tidak ada patokan waktu yang pasti. Hasil bergantung pada kondisi market dan strategi
+                master. Yang pasti, profit tidak dijamin dan kerugian juga mungkin terjadi. Namun, Anda
+                bisa yakin dengan <a class="fq-tautan" href="data-analytic.html" target="_blank" rel="noopener">data statistik</a>
+                dan <strong>1.256+ kali percobaan</strong> pada EA ini.
+              </p>
+            </div>
+          </details>
+
+          <details class="fq-item">
+            <summary class="fq-tanya">Saya tidak mau remove funds harian. Boleh?</summary>
+            <div class="fq-jawab">
+              <p>Boleh, keputusannya kembali ke masing-masing.</p>
+            </div>
+          </details>
+
+          <details class="fq-item">
+            <summary class="fq-tanya">Saya kerja seharian / ibu rumah tangga, bisa ikut?</summary>
+            <div class="fq-jawab">
+              <p>
+                Bisa. Yang trading adalah akun master; Anda cukup menyalin. Tidak perlu dipantau setiap
+                saat. Cek setiap minggu saja kalau ingin remove funds atau melihat pertumbuhan akun.
+                Justru itu tujuan copy trading: Anda tidak perlu trading sendiri.
+              </p>
+            </div>
+          </details>
+
+          <details class="fq-item">
+            <summary class="fq-tanya">Bagaimana cara masuk grup WhatsApp untuk info EA on/off?</summary>
+            <div class="fq-jawab">
+              <p>Klik tombol WhatsApp berikut, lalu chat EADOCTOR Assistant untuk minta diundang ke grup.</p>
+              <a class="tombol tombol--garis tombol--kecil fq-tombol" href="https://wa.me/62887437171917?text=Assalaamu%27alaikum%2C%20saya%20mau%20minta%20diundang%20ke%20grup%20WhatsApp%20copy%20trading." target="_blank" rel="noopener">Minta undangan grup</a>
+            </div>
+          </details>
+
+          <details class="fq-item">
+            <summary class="fq-tanya">Saat withdraw, broker minta kode autentikasi. Bagaimana?</summary>
+            <div class="fq-jawab">
+              <p>
+                Di bagian Profile, lakukan autentikasi sampai statusnya verified. Lalu instal
+                <a class="fq-tautan" href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2" target="_blank" rel="noopener">Google Authenticator</a>
+                dan login memakai akun Gmail yang sama dengan akun Vantage Anda.
+              </p>
+            </div>
+          </details>
+
+          <details class="fq-item">
+            <summary class="fq-tanya">Bagaimana cara memantau akun MT5-nya?</summary>
+            <div class="fq-jawab">
+              <p>
+                Gunakan akun Nonton di halaman
+                <a class="fq-tautan" href="tonton-akun-real.html" target="_blank" rel="noopener">Tonton Akun Real</a>.
+                Nomornya berbeda per strategi, tetapi password dan servernya sama.
+              </p>
+            </div>
+          </details>
+
+          <details class="fq-item">
+            <summary class="fq-tanya">Bagaimana kalau saya perlu menghubungi pihak Vantage?</summary>
+            <div class="fq-jawab">
+              <p>Bisa lewat CS di aplikasi, atau WhatsApp ke sales Vantage:</p>
+              <ul class="fq-telepon">
+                <li><span>+62 812-9179-9109</span><button type="button" class="fq-salin" data-salin="+6281291799109">Copy</button></li>
+              </ul>
+              <p>Kalau beberapa jam belum dibalas, kirim ulang pesan Anda (ini saran dari sales-nya).</p>
+            </div>
+          </details>
+
+          <details class="fq-item">
+            <summary class="fq-tanya">Boleh ikut copy trading orang lain di aplikasi Vantage?</summary>
+            <div class="fq-jawab">
+              <p>
+                Boleh, tetapi pastikan Anda siap dengan risikonya dan sebisa mungkin pantau dulu
+                performanya jauh hari sebelum memutuskan. Untuk EAJO, data performanya bisa Anda
+                periksa sendiri di laporan analitik.
+              </p>
+              <a class="tombol tombol--garis tombol--kecil fq-tombol" href="assets/download-dokumen/Laporan-Analitik-EAJO.pdf" download target="_blank" rel="noopener">Unduh Laporan Analitik (PDF)</a>
+            </div>
+          </details>
+
+          <details class="fq-item">
+            <summary class="fq-tanya">Kenapa harus akun cent?</summary>
+            <div class="fq-jawab">
+              <p>
+                Karena 1 dolar di akun cent setara 0,01 dolar di akun standar. Dengan begitu posisi bisa
+                dibuka dengan ukuran yang proporsional untuk modal kecil. Di akun standar, ukuran
+                terkecil pun sudah terlalu besar untuk modal sekecil ini.
+              </p>
+            </div>
+          </details>
+
+          <details class="fq-item">
+            <summary class="fq-tanya">Apakah saya yang membuka posisi sendiri?</summary>
+            <div class="fq-jawab">
+              <p>
+                Tidak. Semua posisi dibuka otomatis oleh EA (Expert Advisor) yang berjalan di
+                MetaTrader 5, memakai timeframe 1 menit dan hanya entry saat candle ditutup. Anda tidak
+                perlu dan tidak disarankan entry manual.
+              </p>
+            </div>
+          </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= TESTIMONI (disembunyikan sementara, jangan dihapus) =================
+      <section class="bagian bagian--gelap" id="testimoni">
+        <div class="wadah">
+          <div class="bagian__kepala bagian__kepala--tengah" data-animasi>
+            <span class="eyebrow">Kata mereka tentang EAJO</span>
+            <h2 class="bagian__judul">Cerita dari para <em>pengguna EAJO.</em></h2>
+            <p class="bagian__teks">
+              Pengalaman nyata dari investor yang sudah menjalankan copytrade EAJO.
+            </p>
+          </div>
+        </div>
+
+        <div class="testimoni" data-animasi>
+          <div class="testimoni__baris" data-gandakan>
+            <div class="testimoni__isi">
+              <figure class="testimoni__kartu">
+                <blockquote>
+                  “Keuntungannya konsisten. Profit masuk terus tanpa saya harus pantau
+                  chart seharian.”
+                </blockquote>
+                <figcaption class="testimoni__kaki">
+                  <span class="testimoni__orang"
+                    ><span class="testimoni__inisial" aria-hidden="true">A</span
+                    ><span><strong>Andi W.</strong><small>Jakarta</small></span></span
+                  ><span class="testimoni__label">Profit konsisten</span>
+                </figcaption>
+              </figure>
+              <figure class="testimoni__kartu">
+                <blockquote>
+                  “Mudah banget diaksesnya. Tinggal hubungkan akun, sisanya EAJO yang
+                  jalan.”
+                </blockquote>
+                <figcaption class="testimoni__kaki">
+                  <span class="testimoni__orang"
+                    ><span class="testimoni__inisial" aria-hidden="true">S</span
+                    ><span><strong>Sinta M.</strong><small>Bandung</small></span></span
+                  ><span class="testimoni__label">Mudah diakses</span>
+                </figcaption>
+              </figure>
+              <figure class="testimoni__kartu">
+                <blockquote>
+                  “Ternyata risikonya lebih kecil daripada yang tertampil di web. Drawdown-nya
+                  lebih terjaga dari dugaan saya.”
+                </blockquote>
+                <figcaption class="testimoni__kaki">
+                  <span class="testimoni__orang"
+                    ><span class="testimoni__inisial" aria-hidden="true">R</span
+                    ><span><strong>Rizky P.</strong><small>Surabaya</small></span></span
+                  ><span class="testimoni__label">Risiko terkendali</span>
+                </figcaption>
+              </figure>
+              <figure class="testimoni__kartu">
+                <blockquote>
+                  “Hari-hari lihat profit bikin happy, coy. Sejauh ini konsisten terus.”
+                </blockquote>
+                <figcaption class="testimoni__kaki">
+                  <span class="testimoni__orang"
+                    ><span class="testimoni__inisial" aria-hidden="true">D</span
+                    ><span><strong>Dewi K.</strong><small>Yogyakarta</small></span></span
+                  ><span class="testimoni__label">Happy tiap hari</span>
+                </figcaption>
+              </figure>
+              <figure class="testimoni__kartu">
+                <blockquote>“Di atas ekspektasi ini mah, kak!”</blockquote>
+                <figcaption class="testimoni__kaki">
+                  <span class="testimoni__orang"
+                    ><span class="testimoni__inisial" aria-hidden="true">F</span
+                    ><span><strong>Fajar H.</strong><small>Medan</small></span></span
+                  ><span class="testimoni__label">Di atas ekspektasi</span>
+                </figcaption>
+              </figure>
+              <figure class="testimoni__kartu">
+                <blockquote>“EA GG, bos! Gak nyesel pakai EAJO.”</blockquote>
+                <figcaption class="testimoni__kaki">
+                  <span class="testimoni__orang"
+                    ><span class="testimoni__inisial" aria-hidden="true">B</span
+                    ><span><strong>Bima S.</strong><small>Makassar</small></span></span
+                  ><span class="testimoni__label">EA GG</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <div class="wadah">
+          <p class="testimoni__catatan">
+            Testimoni adalah pengalaman pribadi masing-masing pengguna dan tidak menjamin
+            hasil yang sama.
+          </p>
+        </div>
+      </section>
+      ================= AKHIR TESTIMONI ================= -->
+
+      <!-- ================= 10. PENUTUP ================= -->
+      <section class="bagian bagian--gelap">
+        <div class="wadah">
+          <div class="ajakan penutup" data-animasi>
+            <svg class="robot" viewBox="0 0 420 460" role="img" aria-label="Robot EAJO"><use href="#robot" /></svg>
+            <div>
+              <h2 class="bagian__judul hm-penutup__judul">
+                Trading konsisten dengan <em>EA Robot</em>
+              </h2>
+              <span class="penutup__tanda">EAJO DEVELOPER · 2026</span>
+            </div>
+            <div class="hero__aksi">
+              <a class="tombol tombol--emas" href="https://vigco.co/la-s1com-inv/id/kVxIS4rZ" target="_blank" rel="noopener">Mulai sekarang<svg class="ikon"><use href="#i-panah" /></svg></a>
+              <a class="tombol tombol--garis" href="#" data-wa target="_blank" rel="noopener">Chat EADOCTOR Assistant</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= KAKI ================= -->
+    <footer class="kaki">
+      <div class="wadah">
+        <div class="kaki__isi">
+          <div class="kaki__merek">
+            <a class="merek" href="index.html"
+              ><img src="assets/favicon.svg" alt="" width="30" height="30" />EA<span>DOCTOR</span></a
+            >
+            <p>
+              Pengembang Expert Advisor trading. Produk pertama: EAJO, robot trading emas
+              XAUUSD.
+            </p>
+          </div>
+          <div class="kaki__kolom">
+            <h3>Menu</h3>
+            <a href="index.html">Home</a>
+            <a href="tentang.html">Tentang</a>
+            <a href="produk.html">Produk</a>
+            <a href="promosi.html">Promosi</a>
+            <a href="index.html#faq">QnA</a>
+          </div>
+          <div class="kaki__kolom">
+            <h3>Akun</h3>
+            <a href="https://vigco.co/la-s1com-inv/id/kVxIS4rZ" target="_blank" rel="noopener">Daftar</a>
+            <a href="cara-daftar.html">Cara Daftar</a>
+          </div>
+        </div>
+        <div class="kaki__bawah">
+          <p class="kaki__hak">© EADOCTOR 2026</p>
+          <p class="kaki__kecil">
+            Disclaimer: materi ini bukan ajakan atau rekomendasi untuk membeli maupun
+            berinvestasi. Keputusan menggunakan EAJO sepenuhnya kembali kepada
+            masing-masing. Trading emas dengan leverage berisiko tinggi dan dapat
+            menghabiskan seluruh modal. Hasil pengujian masa lalu tidak menjamin hasil di
+            masa depan. Angka peluang adalah estimasi statistik, bukan jaminan.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ================= WHATSAPP MENGAMBANG ================= -->
+    <!-- Nomor diatur di assets/js/main.js (NOMOR_WA) -->
+    <div class="agen">
+      <p class="agen__pesan" data-wa-pesan role="status" hidden>
+        Nomor WhatsApp admin segera tersedia.
+      </p>
+      <a
+        class="wa-mengambang"
+        href="#"
+        data-wa
+        target="_blank"
+        rel="noopener"
+        aria-label="EADOCTOR Assistant, chat admin via WhatsApp"
+      >
+        <svg class="ikon" aria-hidden="true"><use href="#i-wa" /></svg>
+        <span class="wa-mengambang__teks">
+          <strong>EADOCTOR Assistant</strong>
+          <small>Chat via WhatsApp</small>
+        </span>
+      </a>
+    </div>
+  </body>
+</html>
