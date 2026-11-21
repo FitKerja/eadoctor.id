@@ -859,6 +859,15 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .akun-live__tabel thead th { font-size: 12.5px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 .akun-live__tabel tbody th { font-weight: 600; color: var(--teks); }
 .akun-live__tabel td { color: var(--teks-2); }
+/* Warna baris per paket, sama dengan kartu produk (2026-11-21) */
+.akun-live__baris--hijau { background: linear-gradient(90deg, #17b35c, #04401f); }
+.akun-live__baris--biru  { background: linear-gradient(90deg, #2f6fe8, #061f5c); }
+.akun-live__baris--merah { background: linear-gradient(90deg, #ff3030, #7c0505); }
+.akun-live__baris--ungu  { background: linear-gradient(90deg, #9a3fd0, #33084a); }
+.akun-live__tabel .akun-live__baris > * { border-bottom-color: rgba(0, 0, 0, 0.35); color: #fff; }
+.akun-live__tabel .akun-live__baris th { text-shadow: 0 1px 6px rgba(0, 0, 0, 0.35); }
+.akun-live__tabel .akun-live__baris .akun-live__nomor { color: #ffe08a; }
+.akun-live__tabel .akun-live__baris .akun-live__tba { color: #fff1d6; }
 .akun-live__nomor { font-variant-numeric: tabular-nums; letter-spacing: 0.04em; color: var(--emas-300); font-weight: 600; }
 .akun-live__tba {
   display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12.5px; font-weight: 600;
