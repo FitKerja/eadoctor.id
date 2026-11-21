@@ -1368,3 +1368,64 @@ main.halaman + .kaki {
 .daftar-langkah .fq-salin.tersalin { background: var(--emas-500); border-color: var(--emas-500); color: var(--zamrud-950); }
 .daftar-langkah__poin--titik { list-style: disc; }
 .daftar-langkah__poin--titik li::marker { color: var(--emas-400); }
+
+/* ---------- Infografis "Setting CopyTrading" di cara-daftar.html langkah 6 (2026-11-21) ----------
+   Kartu vertikal bergaya mobile (±1:3), latar emerald gelap bertekstur, aksen emas. */
+.sc {
+  --sc-emas: #e8c766; --sc-emas-2: #d4af37;
+  position: relative; max-width: 420px; margin: 18px 0 4px; padding: 30px 20px 24px;
+  border-radius: 26px; overflow: hidden; isolation: isolate;
+  font-family: 'Inter', sans-serif; color: #f4f1e8;
+  background:
+    radial-gradient(120% 60% at 50% 0%, rgba(232, 199, 102, 0.10), transparent 60%),
+    linear-gradient(180deg, #0b3d2e, #062a20);
+  border: 1px solid rgba(232, 199, 102, 0.28);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.9);
+}
+.sc::before { /* tekstur halus */
+  content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0.18; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+.sc__kepala { text-align: center; }
+.sc__badge {
+  display: inline-block; padding: 5px 14px; border-radius: 999px; border: 1px solid var(--sc-emas);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sc-emas);
+}
+.sc__judul {
+  margin-top: 14px; font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: 34px; font-weight: 700; line-height: 1.08; letter-spacing: -0.01em;
+  background: linear-gradient(180deg, #f4dc8c, var(--sc-emas-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.sc__garis { display: block; width: 54px; height: 3px; margin: 14px auto 0; border-radius: 3px; background: linear-gradient(90deg, var(--sc-emas), var(--sc-emas-2)); }
+.sc__sub { margin: 14px auto 0; max-width: 330px; font-size: 14px; line-height: 1.6; color: rgba(244, 241, 232, 0.82); }
+.sc__sub b { color: var(--sc-emas); font-weight: 700; }
+
+.sc__daftar { display: grid; gap: 12px; margin-top: 24px; }
+.sc__kartu {
+  padding: 14px 16px; border-radius: 16px;
+  background: rgba(32, 110, 82, 0.28); border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+.sc__baris { display: flex; align-items: center; gap: 10px; }
+.sc__cek { width: 22px; height: 22px; flex: none; fill: none; stroke: var(--sc-emas); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.sc__cek rect { fill: rgba(232, 199, 102, 0.12); }
+.sc__nama { flex: 1; min-width: 0; font-size: 15px; font-weight: 700; color: #fff; }
+.sc__nilai { flex: none; font-family: 'Space Grotesk', 'Inter', sans-serif; font-size: 20px; font-weight: 700; color: var(--sc-emas); }
+.sc__ket { margin-top: 6px; padding-left: 32px; font-size: 13px; line-height: 1.55; color: rgba(244, 241, 232, 0.72); }
+.sc__ket b { color: var(--sc-emas); font-weight: 600; }
+.sc__tabel { margin-top: 10px; margin-left: 32px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+.sc__tabel > div { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+.sc__tabel > div:last-child { border-bottom: 0; padding-bottom: 0; }
+.sc__tabel span { font-size: 13.5px; color: rgba(244, 241, 232, 0.85); }
+.sc__tabel b { font-family: 'Space Grotesk', 'Inter', sans-serif; font-size: 16px; font-weight: 700; color: var(--sc-emas); }
+.sc__kaki {
+  margin-top: 22px; text-align: center; font-size: 11.5px; font-weight: 700;
+  letter-spacing: 0.2em; text-transform: uppercase; color: var(--sc-emas);
+}
+.sc__kaki span { margin: 0 6px; font-size: 9px; vertical-align: 1px; }
+@media (max-width: 480px) {
+  .sc { margin-left: -42px; padding: 26px 16px 20px; border-radius: 22px; }
+  .sc__judul { font-size: 30px; }
+}
