@@ -344,4 +344,139 @@
       }
     });
   }
+
+  /* ---------- carousel kartu produk (2026-11-21) ----------
+     .ed-kisi--4 diubah jadi deretan kartu yang bisa digeser (swipe di HP,
+     tarik mouse / panah / keyboard di desktop). Kartu di tengah = terpilih,
+     tampil membesar. Tanpa JS, kartu tetap tampil sebagai grid biasa. */
+  document.querySelectorAll(".ed-kisi--4").forEach(function (kisi) {
+    var kartu = Array.prototype.slice.call(kisi.children);
+    if (kartu.length < 2) return;
+
+    kartu.forEach(function (k) {
+      k.classList.remove("tunggu");
+      k.classList.add("tampil");
+      if (pengamatAnimasi) pengamatAnimasi.unobserve(k);
+    });
+
+    var wadah = document.createElement("div");
+    wadah.className = "ed-geser-wadah";
+    kisi.parentNode.insertBefore(wadah, kisi);
+    wadah.appendChild(kisi);
+    kisi.classList.add("ed-geser");
+    kisi.setAttribute("tabindex", "0");
+    kisi.setAttribute("aria-label", "Pilih paket. Geser untuk melihat paket lain.");
+
+    function buatPanah(arah, label, simbol) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "ed-geser-panah ed-geser-panah--" + arah;
+      b.setAttribute("aria-label", label);
+      b.innerHTML = simbol;
+      wadah.appendChild(b);
+      return b;
+    }
+    var kiri = buatPanah("kiri", "Paket sebelumnya", "&#8249;");
+    var kanan = buatPanah("kanan", "Paket berikutnya", "&#8250;");
+
+    var titik = document.createElement("div");
+    titik.className = "ed-geser-titik";
+    var tombolTitik = kartu.map(function (k, i) {
+      var b = document.createElement("button");
+      b.type = "button";
+      var nama = k.querySelector(".ed-produk__nama");
+      b.setAttribute("aria-label", "Tampilkan paket " + (nama ? nama.textContent : i + 1));
+      b.addEventListener("click", function () { pergiKe(i, true); });
+      titik.appendChild(b);
+      return b;
+    });
+    wadah.parentNode.insertBefore(titik, wadah.nextSibling);
+
+    var aktif = -1;
+    function selisihKeTengah(k) {
+      var r = kisi.getBoundingClientRect();
+      var kr = k.getBoundingClientRect();
+      return kr.left + kr.width / 2 - (r.left + r.width / 2);
+    }
+    function indeksTengah() {
+      var terbaik = 0, jarak = Infinity;
+      kartu.forEach(function (k, i) {
+        var d = Math.abs(selisihKeTengah(k));
+        if (d < jarak) { jarak = d; terbaik = i; }
+      });
+      return terbaik;
+    }
+    function setAktif(i) {
+      if (i === aktif) return;
+      aktif = i;
+      kartu.forEach(function (k, j) { k.classList.toggle("aktif", j === i); });
+      tombolTitik.forEach(function (b, j) { b.setAttribute("aria-current", j === i ? "true" : "false"); });
+      kiri.disabled = i === 0;
+      kanan.disabled = i === kartu.length - 1;
+    }
+    function pergiKe(i, halus) {
+      i = Math.max(0, Math.min(kartu.length - 1, i));
+      var tujuan = kisi.scrollLeft + selisihKeTengah(kartu[i]);
+      if (halus) kisi.scrollTo({ left: tujuan, behavior: "smooth" });
+      else kisi.scrollLeft = tujuan;
+      setAktif(i);
+    }
+
+    kiri.addEventListener("click", function () { pergiKe(aktif - 1, true); });
+    kanan.addEventListener("click", function () { pergiKe(aktif + 1, true); });
+    kisi.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { e.preventDefault(); pergiKe(aktif - 1, true); }
+      if (e.key === "ArrowRight") { e.preventDefault(); pergiKe(aktif + 1, true); }
+    });
+
+    var tungguFrame = false;
+    kisi.addEventListener("scroll", function () {
+      if (tungguFrame) return;
+      tungguFrame = true;
+      requestAnimationFrame(function () { tungguFrame = false; setAktif(indeksTengah()); });
+    }, { passive: true });
+
+    /* Tarik dengan mouse (sentuhan memakai geser bawaan browser) */
+    var tarik = null, baruDitarik = false;
+    kisi.addEventListener("pointerdown", function (e) {
+      if (e.pointerType !== "mouse" || e.button !== 0) return;
+      tarik = { x: e.clientX, awal: kisi.scrollLeft, gerak: false };
+    });
+    window.addEventListener("pointermove", function (e) {
+      if (!tarik) return;
+      var dx = e.clientX - tarik.x;
+      if (!tarik.gerak && Math.abs(dx) > 6) {
+        tarik.gerak = true;
+        kisi.classList.add("sedang-tarik");
+      }
+      if (tarik.gerak) kisi.scrollLeft = tarik.awal - dx;
+    });
+    window.addEventListener("pointerup", function () {
+      if (!tarik) return;
+      baruDitarik = tarik.gerak;
+      tarik = null;
+      if (baruDitarik) {
+        kisi.classList.remove("sedang-tarik");
+        pergiKe(indeksTengah(), true);
+        setTimeout(function () { baruDitarik = false; }, 50);
+      }
+    });
+
+    /* Klik kartu yang belum terpilih: pilih dulu (jangan langsung buka link) */
+    kisi.addEventListener("click", function (e) {
+      if (baruDitarik) { e.preventDefault(); e.stopPropagation(); return; }
+      var k = e.target.closest(".ed-kartu");
+      if (!k) return;
+      var i = kartu.indexOf(k);
+      if (i !== aktif) { e.preventDefault(); e.stopPropagation(); pergiKe(i, true); }
+    }, true);
+
+    var awal = kartu.findIndex(function (k) { return k.classList.contains("ed-kartu--sorot"); });
+    awal = awal < 0 ? 0 : awal;
+    setAktif(awal);
+    function pusatkan() { pergiKe(aktif, false); }
+    requestAnimationFrame(pusatkan);
+    window.addEventListener("load", pusatkan);
+    window.addEventListener("resize", pusatkan);
+  });
 })();
