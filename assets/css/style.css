@@ -1429,3 +1429,13 @@ main.halaman + .kaki {
   .sc { margin-left: -42px; padding: 26px 16px 20px; border-radius: 22px; }
   .sc__judul { font-size: 30px; }
 }
+
+/* QR follow signal di kartu paket (2026-11-23) */
+.ed-qr { margin: 0 auto 22px; text-align: center; }
+.ed-qr img {
+  display: block; width: 120px; height: 120px; margin: 0 auto; padding: 6px;
+  background: #fff; border-radius: 12px; border: 2px solid var(--ed-emas);
+  image-rendering: pixelated; -webkit-user-drag: none; user-select: none;
+}
+.ed-qr figcaption { margin-top: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ed-krem); }
+.ed-produk .ed-qr { margin: 18px auto 0; }
