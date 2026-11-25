@@ -345,6 +345,19 @@
     });
   }
 
+  /* ---------- salempang maintenance (2026-11-25) ----------
+     Kemiringan mengikuti diagonal tiap kartu. */
+  document.querySelectorAll(".mt-pita").forEach(function (pita) {
+    function miringkan() {
+      if (!pita.offsetWidth) return;
+      var sudut = Math.atan2(pita.offsetHeight, pita.offsetWidth) * 180 / Math.PI;
+      pita.style.setProperty("--sudut", sudut + "deg");
+    }
+    miringkan();
+    if ("ResizeObserver" in window) new ResizeObserver(miringkan).observe(pita);
+    else { window.addEventListener("load", miringkan); window.addEventListener("resize", miringkan); }
+  });
+
   /* ---------- carousel kartu produk (2026-11-21) ----------
      .ed-kisi--4 diubah jadi deretan kartu yang bisa digeser (swipe di HP,
      tarik mouse / panah / keyboard di desktop). Kartu di tengah = terpilih,
