@@ -1439,3 +1439,17 @@ main.halaman + .kaki {
 }
 .ed-qr figcaption { margin-top: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ed-krem); }
 .ed-produk .ed-qr { margin: 18px auto 0; }
+
+/* Maintenance & Migrasi EA Terbaru (2026-11-25) */
+.mt-pita {
+  margin: 0 0 18px; padding: 9px 12px; border-radius: 10px;
+  background: #f1dc9a; color: #04211b; text-align: center;
+  font-size: 13px; font-weight: 700; line-height: 1.35;
+}
+.mt-kotak {
+  margin: 0 0 32px; padding: 18px 20px; border-radius: 16px;
+  border: 1px solid #d4af37; background: rgba(212, 175, 55, 0.12); text-align: center;
+}
+.mt-kotak strong { display: block; font-size: 18px; color: #e6c766; }
+.mt-kotak span { display: block; margin-top: 6px; color: var(--teks-2); }
+.akun-live__tabel .akun-live__tba { white-space: normal; border-radius: 12px; }
